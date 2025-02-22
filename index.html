@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menta - Café & Brunch</title>
+    <style>
+        body {
+            background-image: url("Fondo.png");
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1a2a23;
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            background-color: #F0DDCA;
+            padding: 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+        .logo {
+            font-size: 36px;
+            font-weight: bold;
+
+            color: #2d5540;
+        }
+        .subtitle {
+            color: #2d5540;
+            margin-top: 1vh; 
+        margin-bottom: 4vh;      }
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            background-color: #2d5540;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .btn-regi{
+            background-color: transparent;
+            color: #2d5540;
+            padding: 10px 20px;
+            border: 2px solid #2d5540;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+        }
+        .btn:hover {
+            background-color: #1f3a2b;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="Logo.svg" alt="logo">
+        <img src="Tira Flor.svg" alt="tira flor" class="subtitle">
+        <div class="buttons">
+            <button id="btn" class="btn">Iniciar sesión</button>
+            <button class="btn-regi" id="btn-regi">Registrarse</button>
+            <a href="https://drive.google.com/file/d/1iWacdvzdic2fHpruDN-Ditc4Ssu5PHyE/view" target="_blank" style="text-decoration: none;"><p>Clickear aqui para ver menu</p></a>
+        </div>
+    </div>
+    <script>
+        document.getElementById("btn").addEventListener("click", function() {
+            sessionStorage.setItem("login-register", 1)
+            window.location.href = "inicio-sesion.html";
+        });
+        document.getElementById("btn-regi").addEventListener("click", function() {
+            sessionStorage.setItem("login-register", 2)
+            window.location.href = "inicio-sesion.html";
+        });
+    </script>
+</body>
+</html>
