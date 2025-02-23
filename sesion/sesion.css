@@ -26,10 +26,10 @@ body {
 }
 .title {
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 900;
     color: black;
     margin-bottom: 20px;
-    text-decoration: underline;
+  
 }
 .input-group {
     text-align: left;
@@ -52,7 +52,8 @@ body {
 }
 .btn {
     background-color: #2d5540;
-    color: white;
+    color: black;
+    font-weight: bold;
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
