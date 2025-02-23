@@ -25,10 +25,12 @@ body {
     justify-content: space-around;
 }
 .title {
+    
     font-size: 22px;
     font-weight: 900;
     color: black;
     margin-bottom: 20px;
+    text-decoration: underline;
   
 }
 .input-group {
