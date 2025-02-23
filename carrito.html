@@ -308,12 +308,14 @@
           });
 
           if (res.ok) {
-            alert("Pedido realizado con éxito");
+            let data =await res.json();
+            console.log(data);
             sessionStorage.removeItem("cart");
-            location.href = "./home.html";
+
+            sessionStorage.setItem("number", data.data)
+            location.href = "./confirmacion.html";
           } else {
             const data = await res.json();
-            console.log(data);
             alert("Hubo un error al realizar el pedido");
           }
         } catch (error) {
