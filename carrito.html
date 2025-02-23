@@ -26,13 +26,17 @@
     <div class="cart-container">
         <h2>Carrito de Compras</h2>
         <div class="cart-list" id="cart-list"></div>
-
+        <div class="time-selector">
+            <label for="notas">Si desea agregue alguna nota:</label>
+                <input type="text" class="notas" id="notas" placeholder="Notas">
+        </div>
         <div class="time-selector">
             <label for="pickup-time">Selecciona la hora de retiro:</label>
             <select id="pickup-time">
                 <option value="">Elige un horario</option>
             </select>
         </div>
+        
 
         <div class="buttons-container">
             <button class="back-btn" onclick="window.history.back()">Volver Atrás</button>
@@ -41,6 +45,9 @@
     </div>
 
     <script>
+        document.getElementById("notas").onchange = function(){
+            console.log(document.getElementById("notas").value);
+        }
         document.addEventListener("DOMContentLoaded", async () => {
             const response = await fetch("https://menta-backend.vercel.app/food");
             const menuData = await response.json();
@@ -137,19 +144,22 @@
                     body: JSON.stringify({
                         order: cart,
                         hour: pickupDateTime.toISOString(),
-                        userId: sessionStorage.getItem("userId")
+                        userId: sessionStorage.getItem("userId"),
+                        notes: document.getElementById("notas").value,
                     })
                 }).then(response => {
                     if (response.status === 200) {
                         alert("Pedido realizado con éxito");
                         sessionStorage.removeItem("cart");
                         renderCart();
+                        location.href = "./home.html"; 
                     } else {
                         response.json().then(data => {
                             console.log(JSON.stringify({
                         order: cart,
                         hour: pickupDateTime.toISOString(),
-                        userId: sessionStorage.getItem("userId")
+                        userId: sessionStorage.getItem("userId"),
+                        notes: document.getElementById("notas").value,
                     }))
                             console.log(data);
                             alert("Hubo un error al realizar el pedido");

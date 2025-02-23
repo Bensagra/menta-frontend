@@ -37,13 +37,14 @@
         }
 
         #orders {
-            height: 80%;
-            overflow-y: auto;
-            margin-top: 20px;
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-        }
+    height: 70vh;
+    overflow-y: auto;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
 
         .container::before {
             content: "";
@@ -136,7 +137,7 @@
         <div class="header">
             <h2 id="titulo">Tus órdenes</h2>
         </div>
-        <div id="orders" style="overflow: auto;"></div>
+        <div id="orders"></div>
         <button class="button" onclick="showMenu()">Crear nueva orden</button>
     </div>
    
