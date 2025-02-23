@@ -36,21 +36,20 @@
             height: 80vh;
         }
 
- 
-
-
         .container::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: url("logo.svg") no-repeat center;
-            background-size: auto 50%;
-            opacity: 0.2;
-            z-index: 0;
-        }
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url("logo.svg") no-repeat center;
+    background-size: auto 50%;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none; /* Esto permite que los clics pasen a través del pseudo-elemento */
+}
+
 
         .header {
             display: flex;
@@ -70,6 +69,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            cursor: pointer;
         }
 
         .menu {
@@ -118,22 +118,43 @@
             border-radius: 5px;
         }
         .button {
-    position: relative;
-    z-index: 10;
-}
-#orders {
-    height: 70vh; /* O height: 70vh si prefieres */
-    overflow-y: scroll;
-    margin-top: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    z-index: 2;
-}
-
-
+            position: relative;
+            z-index: 10;
+        }
+        #orders {
+            height: 70vh;
+            overflow-y: scroll;
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            z-index: 1;
+        }
+        /* Estilos para el modal de detalle de pedido */
+        #order-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        #order-modal .modal-content {
+            background: #f0ddca;
+            color: black;
+            padding: 20px;
+            border-radius: 10px;
+            width: 40%;
+            height: auto;
+            max-width: 90%;
+            max-height: 90%;
+            overflow-y: auto;
+        }
     </style>
-   
 </head>
 <body>
     <div class="container" style="height: 90vh;">
@@ -146,11 +167,76 @@
    
     <script>
         if (sessionStorage.getItem("userId") === null) {
-        location.href = "./inicio-sesion.html";
-    }
+            location.href = "./inicio-sesion.html";
+        }
+
         const formatHour = (isoString) => {
             const date = new Date(isoString);
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        };
+
+        const verifyStatus = (status) => {
+            switch (status) {
+                case "PENDING": return "Pendiente";
+                case "CONFIRMED": return "Confirmado";
+                case "DELIVERED": return "Entregado";
+                case "CANCELLED": return "Cancelado";
+                default: return "Desconocido";
+            }
+        };
+
+        // Función que crea y muestra un modal con los detalles completos del pedido
+        const showOrderDetails = (order) => {
+            const modal = document.createElement("div");
+            modal.id = "order-modal";
+
+            const modalContent = document.createElement("div");
+            modalContent.classList.add("modal-content");
+
+            // Generamos la lista de items utilizando "food_pedido"
+            let itemsHtml = "";
+            if(order.food_pedido && order.food_pedido.length > 0) {
+                order.food_pedido.forEach(item => {
+                    itemsHtml += `
+                        <div style="display: flex; justify-content: start; align-items: center; gap: 10px; margin-bottom: 10px; height: 100%;">
+                            <img src="${item.food.image}" alt="${item.food.name}" style="width:50px; height:50px; border-radius:5px;">
+                            <div>
+                                <p><strong>${item.food.name}</strong></p>
+                                <p>Cantidad: ${item.quantity}</p>
+                                <p>Precio: $${item.price}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } else {
+                itemsHtml = "<p>No hay detalles de productos disponibles.</p>";
+            }
+
+            modalContent.innerHTML = `
+                   <div><h2>Orden N° ${order.number}</h2>
+                <p>Status: ${verifyStatus(order.status)}</p>
+                <p>Hora de retiro: ${formatHour(order.hour)}</p>
+                <p>Total: $${order.total}</p>
+                ${order.notes ? `<p>Notas: ${order.notes}</p>` : ""}
+                </div>
+                <div>
+                <h3>Detalles del pedido:</h3>
+                ${itemsHtml}
+                
+                <button id="close-modal" style="margin-top:10px; padding:10px; border:none; background:#193526; color:white; border-radius:5px; cursor:pointer;">Cerrar</button>
+                </div>
+            `;
+
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal);
+
+            document.getElementById("close-modal").addEventListener("click", () => {
+                modal.remove();
+            });
+        };
+
+        const showMenu = () => {
+            location.href = "./selector_food.html";
         };
 
         document.addEventListener("DOMContentLoaded", async () => {
@@ -177,29 +263,18 @@
                             <img src="arrow_go.svg" alt="order" width="50">
                         </div>
                     `;
+                    // Al hacer clic en el pedido se muestran los detalles completos
+                    orderElement.addEventListener("click", () => {
+                        console.log("Mostrar detalles de la orden", order);
+                        showOrderDetails(order);
+                    });
                     ordersContainer.appendChild(orderElement);
+                    
                 });
             } catch (error) {
                 console.error("Error cargando órdenes:", error);
             }
         });
-
-        const verifyStatus = (status) => {
-            switch (status) {
-                case "PENDING": return "Pendiente";
-                case "CONFIRMED": return "Confirmado";
-                case "DELIVERED": return "Entregado";
-                case "CANCELLED": return "Cancelado";
-                default: return "Desconocido";
-            }
-        };
-
-        const showMenu = ()=>
-        {
-            location.href = "./selector_food.html";
-        }
-
-        
     </script>
 </body>
 </html>
