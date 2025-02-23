@@ -1,5 +1,5 @@
 if (sessionStorage.getItem("userId") === null) {
-    location.href = "./inicio-sesion.html";
+    location.href = "..sesion//inicio-sesion.html";
 }
 
 const formatHour = (isoString) => {

@@ -71,7 +71,7 @@ document.getElementById("register-btn").addEventListener("click", async function
         }
         let user = await response.json();
         console.log(user);
-        sessionStorage.setItem("user",JSON.stringify(user.user));
+        sessionStorage.setItem("userId", user.user.id);
         window.location.href = "../home/home.html";
     } catch (error) {
         errorElement.innerText = error.message;
