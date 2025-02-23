@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Carrito</title>
+  <link rel="stylesheet" href="carrito.css">
+</head>
+<body>
+  <div class="order-container">
+    <!-- Lista de productos del carrito -->
+    <div class="cart-list" id="cart-list"></div>
+
+    <div class="total-container">
+      <span>Total: $<span id="order-total">0</span></span>
+    </div>
+
+    <!-- Sección para seleccionar el horario -->
+    <div class="time-container">
+      <label for="order-hour">Hora de retiro:</label>
+      <input type="time" id="order-hour" required>
+    </div>
+
+    <textarea id="notes" placeholder="Anotaciones para el pedido..."></textarea>
+
+    <div class="buttons-container">
+      <button class="continue-btn" onclick="continueShopping()">Seguir comprando</button>
+      <button class="submit-btn" onclick="placeOrder()">Enviar orden</button>
+    </div>
+  </div>
+
+ <script src="carrito.js"></script>
+</body>
+</html>

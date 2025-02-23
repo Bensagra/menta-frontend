@@ -1,0 +1,99 @@
+ /* Estilos base */
+ * {
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: Arial, sans-serif;
+  }
+  body {
+    /* Fondo oscuro con imagen de hojas (ajusta la ruta a tu imagen) */
+    background: #0b1a16 url("../images/fondo.png") no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    width: 100vw;
+    padding: 10px;
+  }
+  /* Burbuja con la inicial (opcional) */
+  .profile-bubble {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #193526;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 14px;
+  }
+  /* Contenedor central con fondo */
+  .card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(240, 221, 202, 0.95); /* color claro semitransparente */
+    width: 90%;
+    max-width: 350px;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+  }
+  .card h2 {
+    font-size: 20px;
+    color: #1c1c1c;
+    margin-bottom: 10px;
+  }
+  .card p {
+    font-size: 16px;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+  }
+  .card p.order-number {
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  /* Botón */
+  .card button {
+    background-color: #193526;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  .card button:hover {
+    background-color: #145c3c; /* tono más oscuro al pasar el cursor */
+  }
+  .taza {
+    width: 100px;
+    height: auto;
+    margin: 20px 0;
+  }
+  /* Media Queries para responsividad */
+  @media (max-width: 600px) {
+    .card {
+      max-width: 90%;
+      padding: 15px;
+    }
+    .card h2 {
+      font-size: 18px;
+    }
+    .card p {
+      font-size: 14px;
+    }
+    .card button {
+      font-size: 14px;
+      padding: 8px 12px;
+    }
+    .taza {
+      width: 80px;
+    }
+  }

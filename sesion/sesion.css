@@ -1,0 +1,87 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a2a23;
+    font-family: Arial, sans-serif;
+    background-image: url("../images/Fondo.png");
+}
+.container {
+    background-color: #d9c6b1;
+    background-image: url("../images/Logo.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    justify-content: space-around;
+}
+.title {
+    font-size: 22px;
+    font-weight: bold;
+    color: black;
+    margin-bottom: 20px;
+    text-decoration: underline;
+}
+.input-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+.input-group label {
+    font-weight: bold;
+    display: block;
+    font-size: 15px;
+    color: black;
+    margin-bottom: 5px;
+}
+.input-group input {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #2d5540;
+    border-radius: 5px;
+    background-color: #4a6655;
+    color: white;
+}
+.btn {
+    background-color: #2d5540;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin-top: 10px;
+}
+.btn:disabled {
+    background-color: #1f3a2b;
+    cursor: not-allowed;
+}
+.btn:hover:not(:disabled) {
+    background-color: #1f3a2b;
+}
+.toggle {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #2d5540;
+    cursor: pointer;
+}
+.toggle a {
+    color: #2d5540;
+    font-weight: bold;
+    text-decoration: none;
+}
+.toggle a:hover {
+    text-decoration: underline;
+}
+.error {
+    color: red;
+}
