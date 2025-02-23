@@ -260,7 +260,7 @@
                     }
                 }
                 let user = await response.json();
-                sessionStorage.setItem("user",JSON.stringify(user.user));
+                sessionStorage.setItem("userId", user.user.id);
                 window.location.href = "home.html";
             } catch (error) {
                 errorElement.innerText = error.message;

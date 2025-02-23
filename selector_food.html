@@ -18,16 +18,8 @@
         .product { display: flex; justify-content: space-between; align-items: center; background: #f0ddca; color: black; padding: 10px; border-radius: 5px; font-size: 14px; }
         .quantity-controls { display: flex; align-items: center; gap: 5px; }
         .quantity-btn { cursor: pointer; padding: 5px 10px; border: none; background: #444; color: white; border-radius: 3px; }
-        .logo{
-            background-color: #f0ddca;
-            border-radius: 10%;
-            width: 100%;
-            height: auto;
-        }
-        .logo img{
-            width: 50%;
-            height: 50%;
-        }
+        .logo{ background-color: #f0ddca; border-radius: 10%; width: 100%; height: auto; }
+        .logo img{ width: 50%; height: 50%; }
     </style>
 </head>
 <body>
@@ -35,12 +27,11 @@
         <div class="menu-header">
             <button>⬅</button>
             <h2 id="category-title">Menú</h2>
-            <button>🛒</button>
+            <a href="carrito.html">🛒</a>
         </div>
         <div class="logo">
             <img src="Logo.svg" alt="logo">
             <img src="Tira Flor.svg" alt="subLogo">
-            
         </div>
         <div class="categories" id="categories"></div>
         <h3 id="category-name">Seleccione una categoría</h3>
@@ -53,16 +44,33 @@
             const categoriesContainer = document.getElementById("categories");
             const productList = document.getElementById("product-list");
             const categoryTitle = document.getElementById("category-name");
-            let cart = JSON.parse(sessionStorage.getItem("cart")) || {};
-            
+            let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+
             function updateCart(productId, change) {
-                cart[productId] = (cart[productId] || 0) + change;
-                if (cart[productId] <= 0) delete cart[productId];
+                productId = Number(productId);
+                let productIndex = cart.findIndex(item => item.id === productId);
+                if (productIndex !== -1) {
+                    cart[productIndex].quantity += change;
+                    if (cart[productIndex].quantity <= 0) {
+                        cart.splice(productIndex, 1);
+                    }
+                } else if (change > 0) {
+                    cart.push({ id: productId, quantity: change });
+                }
                 sessionStorage.setItem("cart", JSON.stringify(cart));
-                renderProducts(Object.values(menuData.data).find(cat => cat.id == selectedCategoryId)?.food || []);
+                updateDisplayedQuantities();
             }
             window.updateCart = updateCart;
-            
+
+            function updateDisplayedQuantities() {
+                document.querySelectorAll(".product").forEach(productDiv => {
+                    let productId = Number(productDiv.getAttribute("data-id"));
+                    let cartItem = cart.find(item => item.id === productId);
+                    let quantitySpan = productDiv.querySelector(".quantity-controls span");
+                    quantitySpan.textContent = cartItem ? cartItem.quantity : "0";
+                });
+            }
+
             function renderCategories() {
                 menuData.data.forEach(category => {
                     const btn = document.createElement("button");
@@ -73,30 +81,31 @@
                         btn.style.backgroundColor = "#AA7859";
                         categoryTitle.textContent = category.name;
                         renderProducts(category.food);
-                        selectedCategoryId = category.id;
                     });
                     categoriesContainer.appendChild(btn);
                 });
             }
-            
+
             function renderProducts(products) {
                 productList.innerHTML = "";
                 products.forEach(product => {
                     const productDiv = document.createElement("div");
                     productDiv.classList.add("product");
+                    productDiv.setAttribute("data-id", product.id);
+                    let cartItem = cart.find(item => item.id === product.id);
+                    let quantity = cartItem ? cartItem.quantity : 0;
                     productDiv.innerHTML = `
                         <span>${product.name} - $${product.price}</span>
                         <div class="quantity-controls">
                             <button class="quantity-btn" onclick="updateCart(${product.id}, -1)">-</button>
-                            <span>${cart[product.id] || 0}</span>
+                            <span>${quantity}</span>
                             <button class="quantity-btn" onclick="updateCart(${product.id}, 1)">+</button>
                         </div>
                     `;
                     productList.appendChild(productDiv);
                 });
             }
-            
-            let selectedCategoryId = null;
+
             renderCategories();
         });
     </script>

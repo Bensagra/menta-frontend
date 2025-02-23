@@ -152,7 +152,7 @@
                 const response = await fetch("https://menta-backend.vercel.app/user/order/get", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify({ "userId": 4 })
+                    body: JSON.stringify({ "userId": sessionStorage.getItem("userId") })
                 });
                 const orders = await response.json();
                 
