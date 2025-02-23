@@ -145,6 +145,9 @@
     </div>
    
     <script>
+        if (!document.getElementById("userId")) {
+        location.href = "./inicio-sesion.html";
+    }
         const formatHour = (isoString) => {
             const date = new Date(isoString);
             return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });

@@ -38,6 +38,9 @@
         <div class="product-list" id="product-list"></div>
     </div>
     <script>
+        if (!document.getElementById("userId")) {
+        location.href = "./inicio-sesion.html";
+    }
         document.addEventListener("DOMContentLoaded", async () => {
             const response = await fetch("https://menta-backend.vercel.app/food");
             const menuData = await response.json();

@@ -67,7 +67,7 @@
     .cart-list {
         height: 40vh;
         overflow: auto;
-        
+
       display: flex;
       flex-direction: column;
       gap: 10px;
@@ -196,6 +196,9 @@
   </div>
 
   <script>
+    if (!document.getElementById("userId")) {
+        location.href = "./inicio-sesion.html";
+    }
     // --- Ajusta la lógica de 'Seguir comprando' a tu gusto ---
     function continueShopping() {
       // Por ejemplo, podría ser:
