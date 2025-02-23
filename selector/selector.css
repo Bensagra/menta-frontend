@@ -64,6 +64,7 @@
     margin: 15px 0;
   }
   .category-btn {
+    margin: 6px;
     background: #f0ddca;
     border: none;
     cursor: pointer;
