@@ -81,6 +81,18 @@ document.getElementById("register-btn").addEventListener("click", async function
     }
 });
 
+function togglePassword(inputId, iconElement) {
+    const input = document.getElementById(inputId);
+    if (input.type === "password") {
+      input.type = "text";
+      iconElement.innerHTML = '<i class="fa fa-eye-slash"></i>';
+    } else {
+      input.type = "password";
+      iconElement.innerHTML = '<i class="fa fa-eye"></i>';
+    }
+  }
+  
+
 
 document.getElementById("btn").addEventListener("click", async function() {
     const email = document.getElementById("email").value.trim();

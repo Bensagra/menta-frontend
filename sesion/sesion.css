@@ -85,3 +85,17 @@ body {
 .error {
     color: red;
 }
+
+.password-wrapper {
+    position: relative;
+  }
+  
+ 
+  
+  .toggle-password {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
