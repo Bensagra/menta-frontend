@@ -38,7 +38,8 @@
         <div class="product-list" id="product-list"></div>
     </div>
     <script>
-        if (document.getElementById("userId") === null) {
+        
+        if (sessionStorage.getItem("userId") === null) {
         location.href = "./inicio-sesion.html";
     }
         document.addEventListener("DOMContentLoaded", async () => {
