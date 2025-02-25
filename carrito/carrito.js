@@ -9,6 +9,35 @@
   }
 
   document.addEventListener("DOMContentLoaded", async () => {
+    const orderHourInput = document.getElementById("order-hour");
+
+    function setMinAndMaxTime() {
+        const now = new Date();
+        now.setMinutes(now.getMinutes() + 20); // Sumar 20 minutos al horario actual
+
+        // Formatear la hora mínima
+        const minHour = now.toTimeString().slice(0, 5);
+
+        // Hora máxima permitida (9:00 PM)
+        const maxHour = "21:00";
+
+        // Aplicar restricciones al input
+        orderHourInput.min = minHour;
+        orderHourInput.max = maxHour;
+
+        // Asegurar que el valor actual esté dentro del rango permitido
+        if (orderHourInput.value < minHour || orderHourInput.value > maxHour) {
+            orderHourInput.value = minHour;
+        }
+    }
+
+    // Establecer las restricciones al cargar la página
+    setMinAndMaxTime();
+
+    // También actualizar cuando el usuario intenta abrir el selector de hora
+    orderHourInput.addEventListener("click", setMinAndMaxTime);
+
+
     let menuData;
     try {
       const response = await fetch("https://menta-backend.vercel.app/food");
