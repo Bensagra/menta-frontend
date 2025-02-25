@@ -19,7 +19,7 @@
         const minHour = now.toTimeString().slice(0, 5);
 
         // Hora máxima permitida (9:00 PM)
-        const maxHour = "21:00";
+        const maxHour = "20:30";
 
         // Aplicar restricciones al input
         orderHourInput.min = minHour;
