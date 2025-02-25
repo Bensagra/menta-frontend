@@ -26,9 +26,13 @@
         orderHourInput.max = maxHour;
 
         // Asegurar que el valor actual esté dentro del rango permitido
-        if (orderHourInput.value < minHour || orderHourInput.value > maxHour) {
+       orderHourInput.addEventListener("input", () => {
+          if (orderHourInput.value < minHour) {
             orderHourInput.value = minHour;
-        }
+          } else if (orderHourInput.value > maxHour) {
+            orderHourInput.value = maxHour;
+          }
+        });
     }
 
     // Establecer las restricciones al cargar la página
