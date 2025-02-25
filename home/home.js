@@ -68,7 +68,13 @@ const showOrderDetails = (order) => {
 };
 
 const showMenu = () => {
-    location.href = "../selector/selector_food.html";
+    if (new Date().getHours() <8 || new Date().getHours() >20) {
+        alert("El menú solo está disponible de 10:00 a 14:00 horas.");
+        
+    }else{
+        location.href = "../selector/selector_food.html";
+
+    }
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
