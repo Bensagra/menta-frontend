@@ -1,142 +1,212 @@
+/* Reseteo y tipografía */
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-  }
-  body {
-    background-image: url("../images/fondo.png");
-    background-size: cover;
-    background-position: center;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    width: 100vw;
-    flex-direction: column;
-    padding: 10px;
-  }
-  .menu-container {
-    text-align: center;
-    width: 90%;
-    max-width: 400px;
-    background: transparent;
-    padding: 15px;
-    border-radius: 10px;
-    min-height: 80vh;
-  }
-  .menu-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    background: #f0ddca;
-    border-radius: 10px;
-    margin-bottom: 10px;
-  }
-  .menu-header h2 {
-    margin: 0;
-    font-size: 1.2rem;
-    color: black;
-  }
-  .menu-header a {
-    text-decoration: none;
-    color: black;
-  }
-  .logo {
-    background-color: #f0ddca;
-    border-radius: 10%;
-    margin: 15px 0;
-    padding: 10px;
-  }
-  .logo img {
-    width: 50%;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-  }
-  .categories {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 8px;
-    margin: 15px 0;
-  }
-  .category-btn {
-    margin: 2px;
-    background: #f0ddca;
-    border: none;
-    cursor: pointer;
-    position: relative;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    transition: background 0.3s ease;
-  }
-  .category-btn img {
-    width: 80%;
-    height: 80%;
-    border-radius: 50%;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
 
-  #category-name {
-    margin-bottom: 10px;
-    color: #f0ddca;
-  }
+/* Fondo general */
+body {
+  background-image: url("../images/fondo.png");
+  background-size: cover;
+  background-position: center;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100vw;
+  flex-direction: column;
+  padding: 10px;
+}
+
+/* Contenedor principal */
+.menu-container {
+  text-align: center;
+  width: 90%;
+  max-width: 400px;
+  background: transparent;
+  padding: 15px;
+  border-radius: 10px;
+  min-height: 80vh;
+}
+
+/* Header con botón de atrás, título y carrito */
+.menu-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background: #f0ddca;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.menu-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: black;
+}
+
+.menu-header a {
+  text-decoration: none;
+  color: black;
+}
+
+/* Logo */
+.logo {
+  background-color: #f0ddca;
+  border-radius: 10%;
+  margin: 15px 0;
+  padding: 10px;
+}
+
+.logo img {
+  width: 50%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Sección de categorías */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 15px 0;
+}
+
+.category-btn {
+  margin: 2px;
+  background: #f0ddca;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.category-btn img {
+  width: 80%;
+  height: 80%;
+  border-radius: 50%;
+}
+
+/* Título de categoría */
+#category-name {
+  margin-bottom: 10px;
+  color: #f0ddca;
+}
+
+/* Listado de productos (grid en lugar de flex para tarjetas) */
+.product-list {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en móvil */
+  gap: 20px;
+  max-height: 40vh;
+  overflow-y: auto;
+}
+
+@media (min-width: 600px) {
+  /* A partir de 600px, mostramos dos columnas */
   .product-list {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    max-height: 40vh;
-    overflow-y: auto;
+    grid-template-columns: 1fr 1fr;
   }
-  .product {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #f0ddca;
-    color: black;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-  }
-  .quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-  }
-  .quantity-btn {
-    cursor: pointer;
-    padding: 5px 10px;
-    border: none;
-    background: #444;
-    color: white;
-    border-radius: 3px;
-  }
+}
 
-  .image{
-    width: 70px;
-    height: 70px;
-    border-radius: 70px;
+/* Tarjeta individual del producto */
+.product-card {
+  background: #f0ddca;
+  /* Si quieres un fondo con cuadrícula similar a la imagen, agrega tu propio pattern:
+     background: #f0ddca url("../images/grid-pattern.png") center/cover no-repeat; 
+  */
+  color: black;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+/* Imagen del producto en la tarjeta */
+.product-card img {
+  width: 80%;
+  aspect-ratio: 1 / 1;  /* Mantiene la proporción de 1:1 (cuadrado) */
+  object-fit: cover;     /* Recorta los bordes para llenar el espacio */
+  display: block;        /* Para que margin: 0 auto funcione en centrar horizontalmente */
+  margin: 0 auto 10px;   /* Centrado horizontal + espacio inferior */
+  border-radius: 5px;
+}
+/* Título del producto */
+.product-title {
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #AA7859;
+  margin-bottom: 5px;
+}
+
+/* Precio del producto */
+.product-price {
+  font-size: 0.9rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+/* Controles de cantidad */
+.quantity-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+}
+
+/* Botones de cantidad */
+.quantity-btn {
+  cursor: pointer;
+  padding: 5px 10px;
+  border: none;
+  background: #444;
+  color: white;
+  border-radius: 3px;
+}
+
+/* Ajustes responsivos */
+@media (max-width: 600px) {
+  .menu-container {
+    width: 95%;
+    padding: 10px;
   }
-  /* Media queries para mayor responsividad */
-  @media (max-width: 600px) {
-    .menu-container {
-      width: 95%;
-      padding: 10px;
-    }
-    .menu-header h2 {
-      font-size: 1rem;
-    }
-    .product {
-      font-size: 12px;
-      padding: 8px;
-    }
-    .quantity-btn {
-      padding: 5px;
-    }
-    .logo img {
-      width: 60%;
-    }
+  
+  .menu-header h2 {
+    font-size: 1rem;
   }
+  
+  .product-card {
+    padding: 8px;
+  }
+  
+  .product-title {
+    font-size: 0.9rem;
+  }
+  
+  .product-price {
+    font-size: 0.8rem;
+  }
+}
+
+.product-description {
+  font-size: 0.85rem;         /* Tamaño ligeramente menor al título */
+  color: #444;                /* Color neutro que armoniza con el precio y fondo */
+  margin: 8px 0 10px;         /* Espaciado superior e inferior para separar elementos */
+  text-align: center;         /* Centrado para mantener la coherencia en la tarjeta */
+  line-height: 1.2;
+}

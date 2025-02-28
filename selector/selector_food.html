@@ -1,28 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menú</title>
-  <link rel="stylesheet" href="selector.css">
+  <!-- Vinculamos nuestro nuevo CSS -->
+  <link rel="stylesheet" href="selector.css" />
 </head>
 <body>
   <div class="menu-container">
     <div class="menu-header">
-      <a href="../home/home.html"><button style="font-size: xx-large; background-color: transparent; border: 0px solid black;">⬅</button></a>
+      <a href="../home/home.html">
+        <button style="font-size: xx-large; background-color: transparent; border: 0px solid black;">⬅</button>
+      </a>
       <h2 id="category-title">Menú</h2>
       <a href="../carrito/carrito.html" style="font-size: xx-large;">🛒</a>
     </div>
     <div class="logo">
-      <img src="../images/Logo.svg" alt="logo">
-      <img src="../images/Tira Flor.svg" alt="subLogo">
+      <img src="../images/Logo.svg" alt="logo" />
+      <img src="../images/Tira Flor.svg" alt="subLogo" />
     </div>
+    
+    <!-- Botones de categorías -->
     <div class="categories" id="categories"></div>
+    
     <h3 id="category-name">Seleccione una categoría</h3>
+    
+    <!-- Aquí se mostrarán las tarjetas de productos -->
     <div class="product-list" id="product-list"></div>
-   
   </div>
-  <a href="../carrito/carrito.html" style="background-color: transparent; padding: 1vw; color: white; text-decoration: none; border-radius: 1vw; border: 2px solid black;">Ir a pagar</a>
+  
+  <a
+    href="../carrito/carrito.html"
+    style="
+      background-color: transparent;
+      padding: 1vw;
+      color: white;
+      text-decoration: none;
+      border-radius: 1vw;
+      border: 2px solid black;
+    "
+    >Ir a pagar</a
+  >
+  
+  <!-- Nuestro script -->
   <script src="selector.js"></script>
 </body>
 </html>
