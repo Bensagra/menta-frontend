@@ -46,7 +46,7 @@ if (!sessionStorage.getItem("userId")) {
       menuData.forEach(category => {
         const btn = document.createElement("button");
         btn.classList.add("category-btn");
-        btn.innerHTML = `<img src="${category.img}" alt="${category.name}"><span>${category.name}</span>`;
+        btn.innerHTML = `<img src="${category.img}" alt="${category.name}">`;
         btn.addEventListener("click", () => {
           document.querySelectorAll(".category-btn").forEach(btn => btn.style.backgroundColor = "#f0ddca");
           btn.style.backgroundColor = "#AA7859";
