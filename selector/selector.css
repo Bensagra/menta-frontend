@@ -114,6 +114,12 @@
     color: white;
     border-radius: 3px;
   }
+
+  .image{
+    width: 70px;
+    height: 70px;
+    border-radius: 70px;
+  }
   /* Media queries para mayor responsividad */
   @media (max-width: 600px) {
     .menu-container {

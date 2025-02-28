@@ -67,6 +67,7 @@ if (!sessionStorage.getItem("userId")) {
         let cartItem = cart.find(item => item.id === product.id);
         let quantity = cartItem ? cartItem.quantity : 0;
         productDiv.innerHTML = `
+          <img class="image" src="${product.image}" alt="${product.name}">
           <span>${product.name} - $${product.price}</span>
           <div class="quantity-controls">
             <button class="quantity-btn" onclick="updateCart(${product.id}, -1)">-</button>
