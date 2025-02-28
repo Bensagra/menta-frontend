@@ -68,6 +68,7 @@ const showOrderDetails = (order) => {
 };
 
 const showMenu = () => {
+    
     if (new Date().getHours() <8 || new Date().getHours() >20) {
         alert("El menú solo está disponible de 08:00 a 20:00 horas");
         
