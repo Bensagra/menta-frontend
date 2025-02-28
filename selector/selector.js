@@ -77,6 +77,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       let cartItem = cart.find(item => item.id === product.id);
       let quantity = cartItem ? cartItem.quantity : 0;
       
+      
       productCard.innerHTML = `
         <img src="${product.image}" alt="${product.name}">
         <h3 class="product-title">${product.name}</h3>
