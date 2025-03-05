@@ -1,128 +1,402 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Menta - Café & Brunch</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Café Delicioso</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
-    /* Estilos base */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
-    img {
+    /* Evita que el contenido exceda el ancho de la pantalla */
+    html, body {
       max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f8f5f2;
+      color: #4d4d4d;
+      padding-top: 70px; /* Espacio para el navbar fijo */
+    }
+
+    /* Navbar elegante */
+    .navbar {
+      background-color: #3e2723;
+      padding: 15px 20px;
+    }
+    .navbar-brand img {
+      width: 100px;
+    }
+    .navbar-nav .nav-item {
+      position: relative;
+    }
+    .navbar-nav .nav-link {
+      color: #365a54 !important;
+      font-weight: bold;
+      padding: 10px 15px;
+      transition: color 0.3s ease-in-out;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ffe0b2 !important;
+    }
+    .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+      width: 200px;
+    }
+    .dropdown-item {
+      padding: 12px 15px;
+      font-size: 16px;
+      color: #333;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .dropdown-item:hover {
+      background-color: #ffe0b2;
+      color: #3e2723;
+    }
+    .nav-item:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Íconos */
+    .icon {
+      width: 25px;
       height: auto;
     }
-    body {
-      background-image: url("./images/Fondo.png");
-      background-color: #1a2a23;
-      display: flex;
-      justify-content: center;
+    /* Carousel */
+    .carousel-item img {
+      width: 100%;
+      height: 700px;
+      object-fit: contain;
+    }
+    /* Contenedor de los botones */
+    .botonera {
+      padding: 40px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      justify-items: center;
       align-items: center;
-      height: 100vh;
-      margin: 0;
-      padding: 0;
+      background-color: #fff3e0;
+      border-radius: 15px;
     }
-    .container {
-      display: flex;
-      flex-direction: column;
-      background-color: #F0DDCA;
-      padding: 30px;
-      border-radius: 20px;
+    /* Cada botón */
+    .boton {
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      max-width: 400px;
-      width: 90%;
+      width: 220px;
+      background: #fff;
+      border-radius: 15px;
+      padding: 20px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
     }
-    .logo {
-      font-size: 36px;
+    .boton:hover {
+      transform: translateY(-5px);
+      box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .boton img {
+      width: 100%;
+      border-radius: 15px;
+      aspect-ratio: 1/1;
+      object-fit: cover;
+      transition: opacity 0.3s ease;
+    }
+    .boton:hover img {
+      opacity: 0.9;
+    }
+    .boton h3 {
+      margin-top: 10px;
+      font-size: 18px;
       font-weight: bold;
-      color: #2d5540;
+      color: #4d4d4d;
     }
-    .subtitle {
-      color: #2d5540;
-      margin-top: 1vh;
-      margin-bottom: 4vh;
-    }
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .btn {
-      background-color: #2d5540;
+    .boton button {
+      margin-top: 10px;
+      background: #3e2723;
       color: white;
-      padding: 10px 20px;
       border: none;
-      border-radius: 5px;
+      font-size: 14px;
+      font-weight: bold;
+      padding: 8px 15px;
+      border-radius: 8px;
       cursor: pointer;
-      font-size: 16px;
-      width: 100%;
+      transition: background 0.3s ease;
     }
-    .btn-regi {
+    .boton button:hover {
+      background: #5d4037;
+    }
+    /* Sección Instagram */
+    .instagram-section {
+      background-color: #fff3e0;
+      padding: 40px 0;
+    }
+    .instagram-section h2 {
+      font-family: 'Georgia', serif;
+      font-weight: bold;
+    }
+    .instagram-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-around;
+      align-items: center;
+    }
+    /* Footer */
+    footer {
+      background-color: #3e2723;
+      color: #f3e5ab;
+      padding: 20px 0;
+    }
+
+    /* Estilos para desktop */
+    @media (min-width: 992px) {
+      .navbar-collapse {
+        justify-content: space-around;
+      }
+      .navbar-nav {
+        width: 80%;
+        display: flex;
+        justify-content: space-around;
+      }
+    }
+
+    /* Estilos para mobile (max-width: 991px) */
+    @media (max-width: 991px) {
+      .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+        text-align: left;
+      }
+      .navbar-collapse {
+        justify-content: flex-start;
+      }
+      .nav-item {
+        width: 100%;
+      }
+      .navbar-nav .nav-link {
+        padding: 12px;
+      }
+      .dropdown-menu {
+        display: none;
+        position: static;
+        box-shadow: none;
+        opacity: 1;
+        transform: none;
+        background: #f8f5f2;
+        border-radius: 0;
+      }
+      .dropdown-menu .dropdown-item {
+        padding: 10px;
+      }
+      .dropdown-menu.show {
+        display: block;
+      }
+      .boton {
+        width: 100%;
+      }
+    }
+
+    /* Ajustes adicionales para mobile (max-width: 767px) */
+    @media (max-width: 767px) {
+      .carousel-item img {
+        height: 300px;
+      }
+      .instagram-section iframe {
+        width: 100% !important;
+        height: auto !important;
+      }
+      .instagram-container {
+        flex-direction: column;
+      }
+      .instagram-section iframe {
+        margin-bottom: 20px;
+      }
+      .botonera {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    button {
       background-color: transparent;
-      color: #2d5540;
-      padding: 10px 20px;
-      border: 2px solid #2d5540;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      width: 100%;
-    }
-    .btn:hover {
-      background-color: #1f3a2b;
-    }
-    /* Media Queries para mayor responsividad */
-    @media (max-width: 600px) {
-      .container {
-        padding: 20px;
-      }
-      .logo {
-        font-size: 28px;
-      }
-      .btn, .btn-regi {
-        font-size: 14px;
-        padding: 8px 16px;
-      }
+      border: none;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <img src="../images/Logo.svg" alt="logo">
-    <img src="../images/Tira Flor.svg" alt="tira flor" class="subtitle">
-    <div class="buttons">
-      <button id="btn" class="btn">Iniciar sesión</button>
-      <button id="btn-regi" class="btn-regi">Registrarse</button>
-      <a href="https://drive.google.com/file/d/1iWacdvzdic2fHpruDN-Ditc4Ssu5PHyE/view" target="_blank" style="text-decoration: none;">
-        <p>Clickear aquí para ver menú</p>
-      </a>
-      <a href="https://drive.google.com/file/d/1P527FFPTX5SxNwPkt9wsehcwOHVouD1b/view?usp=sharing" target="_blank" style="text-decoration: none;">
-        <p>Clickear aquí para ver menú sin tacc</p>
-      </a>
+  <!-- Menú de navegación -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#"><img src="images/Logo.svg" alt="Logo menta" style="width: 100px;"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Inicio</a>
+        </li>
+        <!-- Dropdown Menta -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenta" role="button" 
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menta
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenta">
+            <a class="dropdown-item" href="#">Nuestra Historia</a>
+            <a class="dropdown-item" href="#">Equipo</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Sostenibilidad</a>
+          </div>
+        </li>
+        <!-- Enlace directo a Productos -->
+        <li class="nav-item">
+          <a class="nav-link" href="productos.html" id="navbarDropdownProductos">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Catering</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./contacto.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="./home/home.html">Mis pedidos</a>
+        </li>
+        <li class="nav-item">
+          <button onclick="sessionStorage.setItem('screen',2)">
+            <a class="nav-link" href="./carrito/carrito.html"><img class="icon" src="images/carrito.svg" alt="Carrito"></a>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button onclick="sessionStorage.setItem('screen',1)">
+            <a class="nav-link" href="./sesion/inicio-sesion.html"><img class="icon" src="images/user.svg" alt="User"></a>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Carrusel de imágenes -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="margin-top: 20px;">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img class="d-block w-100" 
+             src="./images/carrusel1.png" 
+             alt="First slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" 
+             src="./images/carrusel1.png"
+             alt="Second slide">
+      </div>
+      <div class="carousel-item">
+        <img class="d-block w-100" 
+             src="./images/carrusel1.png"
+             alt="Third slide">
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+
+  <!-- Sección de categorías de productos -->
+  <div class="botonera">
+    <div class="boton" onclick="comprar('bakery')">
+      <img src="https://d23hgm0tds3lcv.cloudfront.net/wp-content/uploads/2022/11/22-10-Wholesale-Bakery-Bread-Pastry-WEB-0233-Edit-1.jpg" alt="bakery">
+      <h3>bakery</h3>
+      <button>COMPRAR</button>
+    </div>
+    <div class="boton" onclick="comprar('cuadrados y alfajores')">
+      <img src="https://pampadirect.com/product_images/uploaded_images/alfajor-negro-relleno-de-dulce-de-leche.jpg" alt="cuadrados y alfajores">
+      <h3>cuadrados y alfajores</h3>
+      <button>COMPRAR</button>
+    </div>
+    <div class="boton" onclick="comprar('almacen')">
+      <img src="https://www.coques.com.ar/wp-content/uploads/2023/06/Chocotorta.jpg" alt="almacen">
+      <h3>Tortas</h3>
+      <button>COMPRAR</button>
+    </div>
+    <div class="boton" onclick="comprar('bakery')">
+      <img src="https://d23hgm0tds3lcv.cloudfront.net/wp-content/uploads/2022/11/22-10-Wholesale-Bakery-Bread-Pastry-WEB-0233-Edit-1.jpg" alt="bakery">
+      <h3>bakery</h3>
+      <button>COMPRAR</button>
+    </div>
+    <div class="boton" onclick="comprar('cuadrados y alfajores')">
+      <img src="https://pampadirect.com/product_images/uploaded_images/alfajor-negro-relleno-de-dulce-de-leche.jpg" alt="cuadrados y alfajores">
+      <h3>cuadrados y alfajores</h3>
+      <button>COMPRAR</button>
+    </div>
+    <div class="boton" onclick="comprar('almacen')">
+      <img src="https://www.coques.com.ar/wp-content/uploads/2023/06/Chocotorta.jpg" alt="almacen">
+      <h3>Tortas</h3>
+      <button>COMPRAR</button>
     </div>
   </div>
-  <script>
-    // Verificar y manejar el guardado en sessionStorage con control de errores
-    document.getElementById("btn").addEventListener("click", function() {
-      try {
-        sessionStorage.setItem("login-register", "1");
-      } catch (error) {
-        console.error("Error al guardar en sessionStorage:", error);
-      }
-      window.location.href = "../sesion/inicio-sesion.html";
-    });
 
-    document.getElementById("btn-regi").addEventListener("click", function() {
-      try {
-        sessionStorage.setItem("login-register", "2");
-      } catch (error) {
-        console.error("Error al guardar en sessionStorage:", error);
+  <!-- Sección Instagram -->
+  <section class="instagram-section text-center">
+    <div class="container">
+      <h2 class="mb-4">Síguenos en Instagram</h2>
+      <div class="instagram-container">
+        <iframe src="https://www.instagram.com/p/DGdykSsJAfX/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        <iframe src="https://www.instagram.com/p/DGdykSsJAfX/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+        <iframe src="https://www.instagram.com/p/DGdykSsJAfX/embed" width="320" height="440" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pie de página -->
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 Menta Café. Todos los derechos reservados.</p>
+      <p>Dirección: Yatay 239, Cdad. Autónoma de Buenos Aires, Argentina</p>
+    </div>
+  </footer>
+
+  <!-- Scripts de Bootstrap y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+          integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" 
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" 
+          crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+      if ($(window).width() < 992) {
+        $('.dropdown').off('mouseenter mouseleave'); // Desactiva hover en móviles
+        $('.dropdown-toggle').click(function () {
+          var $dropdownMenu = $(this).next('.dropdown-menu');
+          $('.dropdown-menu').not($dropdownMenu).removeClass('show'); // Cierra otros dropdowns abiertos
+          $dropdownMenu.toggleClass('show');
+        });
       }
-      window.location.href = "../sesion/inicio-sesion.html";
     });
   </script>
 </body>

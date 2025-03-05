@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #f8f5f2;
+      padding-top: 90px;
+    }
+
+    /* Navbar */
+    .navbar {
+      background-color: #3e2723;
+      padding: 15px 20px;
+    }
+    .navbar-brand img {
+      width: 100px;
+    }
+    footer {
+      background-color: #3e2723;
+      color: #f3e5ab;
+      padding: 20px 0;
+    }
+    .navbar-nav {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+    }
+    .navbar-nav .nav-item {
+      position: relative;
+    }
+    .navbar-nav .nav-link {
+      color: #365a54 !important;
+      font-weight: bold;
+      padding: 10px 15px;
+      transition: color 0.3s ease-in-out;
+    }
+    .navbar-nav .nav-link:hover {
+      color: #ffe0b2 !important;
+    }
+    .navbar-collapse {
+      justify-content: space-around;
+    }
+    /* Dropdown */
+    .navbar-nav .nav-item .dropdown-menu {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: #fff;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+      display: none;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.3s ease, transform 0.2s ease;
+      z-index: 1000;
+    }
+    .nav-item:hover .dropdown-menu {
+      display: block;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .icon {
+      width: 25px;
+      height: auto;
+    }
+
+    /* Encabezado con imagen */
+    .contact-header {
+      background: url('https://www.cronista.com/files/image/419/419246/61d46ac6c3d06.jpg') center/cover;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      font-size: 2.5rem;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    /* Sección de contacto */
+    .contact-container {
+      max-width: 1100px;
+      margin: auto;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      padding: 50px 20px;
+    }
+
+    .contact-info {
+      flex: 1;
+      background: #fceee4;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    .contact-info h4 {
+      font-weight: bold;
+    }
+
+    .contact-form {
+      flex: 1;
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-group label {
+      font-weight: bold;
+    }
+
+    .form-control {
+      border-radius: 5px;
+      padding: 10px;
+    }
+
+    .submit-btn {
+      background: #3e2723;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    .submit-btn:hover {
+      background: #5d4037;
+    }
+
+    button {
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- APP BAR -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#"><img src="images/Logo.svg" alt="Logo menta"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active"><a class="nav-link" href="./index.html">Inicio</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="./index.html" role="button" data-toggle="dropdown">Menta</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">Nuestra Historia</a>
+            <a class="dropdown-item" href="#">Equipo</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Sostenibilidad</a>
+          </div>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Catering</a></li>
+        <li class="nav-item"><a class="nav-link" href="./contacto.html">Contacto</a></li>
+        <li class="nav-item">
+            <a class="nav-link" href="./home/home.html">Mis pedidos</a>
+          </li>
+        <li class="nav-item"> <button onclick="sessionStorage.setItem('screen',2)"> <a class="nav-link" href="./carrito/carrito.html"><img class="icon" src="images/carrito.svg" alt="Carrito"></a></li></button>
+        <li class="nav-item"> <button onclick="sessionStorage.setItem('screen',1)"> <a class="nav-link" href="./sesion/inicio-sesion.html"><img class="icon" src="images/user.svg" alt="User"></a></li></button>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ENCABEZADO -->
+  <div class="contact-header"> Contacto</div>
+
+  <!-- SECCIÓN DE CONTACTO -->
+  <div class="contact-container">
+    
+    <!-- INFORMACIÓN -->
+    <div class="contact-info">
+      <h4>Información</h4>
+      <p>Envíanos tu consulta y te responderemos a la brevedad.</p>
+      <p><strong>Dirección:</strong> Yatay 239, Cdad. Autónoma de Buenos Aires, Argentina</p>
+      <p><strong>Teléfono:</strong> (11) 4783-6120</p>
+    </div>
+    
+    <!-- FORMULARIO -->
+    <div class="contact-form">
+      <h4>Envíanos tu consulta</h4>
+      <form>
+        <div class="form-group">
+          <label>Nombre*</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Apellido*</label>
+          <input type="text" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Teléfono*</label>
+          <input type="tel" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Email*</label>
+          <input type="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label>Consulta*</label>
+          <textarea class="form-control" rows="4" required></textarea>
+        </div>
+        <button type="submit" class="submit-btn">Enviar</button>
+      </form>
+    </div>
+  </div>
+  <footer class="text-center">
+    <div class="container">
+      <p>&copy; 2025 Menta Café. Todos los derechos reservados.</p>
+      <p>Dirección: Yatay 239, Cdad. Autónoma de Buenos Aires, Argentina</p>
+    </div>
+  </footer>
+</body>
+</html>

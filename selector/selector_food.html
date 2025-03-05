@@ -4,26 +4,87 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Menú</title>
-  <!-- Vinculamos nuestro nuevo CSS -->
-  <link rel="stylesheet" href="selector.css" />
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Bootstrap CSS para el navbar -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- CSS del navbar y de la página -->
+  <link rel="stylesheet" href="navbar.css">
+  <link rel="stylesheet" href="selector.css">
 </head>
 <body>
-  <div class="menu-container">
-    <div class="menu-header">
-      <a href="../home/home.html">
-        <button style="font-size: xx-large; background-color: transparent; border: 0px solid black;">⬅</button>
-      </a>
-      <h2 id="category-title">Menú</h2>
-      <a href="../carrito/carrito.html" style="font-size: xx-large;">🛒</a>
+
+  <!-- Navbar (Appbar) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="../images/Logo.svg" alt="Logo menta">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Inicio</a>
+        </li>
+        <!-- Dropdown Menta -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenta" role="button" 
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menta
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenta">
+            <a class="dropdown-item" href="#">Nuestra Historia</a>
+            <a class="dropdown-item" href="#">Equipo</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Sostenibilidad</a>
+          </div>
+        </li>
+        <!-- Enlace directo a Productos -->
+        <li class="nav-item">
+          <a class="nav-link" href="../productos.html" id="navbarDropdownProductos">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Catering</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contacto.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../home/home.html">Mis pedidos</a>
+        </li>
+        <li class="nav-item">
+          <button onclick="sessionStorage.setItem('screen',2)">
+            <a class="nav-link" href="../carrito/carrito.html">
+              <img class="icon" src="../images/carrito.svg" alt="Carrito">
+            </a>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button onclick="sessionStorage.setItem('screen',1)">
+            <a class="nav-link" href="../sesion/inicio-sesion.html">
+              <img class="icon" src="../images/user.svg" alt="User">
+            </a>
+          </button>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+  <!-- Contenido principal de la página Menú -->
+   
+  <div class="menu-container" style="margin-top: 100px;">
+
     <div class="logo">
-      <img src="../images/Logo.svg" alt="logo" />
-      <img src="../images/Tira Flor.svg" alt="subLogo" />
+      <img src="../images/Logo.svg" alt="logo">
+      <img src="../images/Tira Flor.svg" alt="subLogo">
     </div>
     
     <!-- Botones de categorías -->
     <div class="categories" id="categories"></div>
-    
     
     <h3 id="category-name">Seleccione una categoría</h3>
     
@@ -31,20 +92,18 @@
     <div class="product-list" id="product-list"></div>
   </div>
   
-  <a
-    href="../carrito/carrito.html"
-    style="
-      background-color: transparent;
-      padding: 1vw;
-      color: white;
-      text-decoration: none;
-      border-radius: 1vw;
-      border: 2px solid black;
-    "
-    >Ir a pagar</a
-  >
+  <a href="../carrito/carrito.html" style="border: 2px solid black; padding: 15px; border-radius: 10px; text-decoration: none; color: white;" >Ir a pagar</a>
   
-  <!-- Nuestro script -->
+  <!-- Scripts de Bootstrap y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+          integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" 
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" 
+          crossorigin="anonymous"></script>
   <script src="selector.js"></script>
 </body>
 </html>

@@ -72,7 +72,12 @@ document.getElementById("register-btn").addEventListener("click", async function
         let user = await response.json();
         console.log(user);
         sessionStorage.setItem("userId", user.user.id);
-        window.location.href = "../home/home.html";
+        if (sessionStorage.getItem("screen") === 1 || sessionStorage.getItem("screen") === null) {
+            window.location.href = "../home/home.html";
+            
+        }else if(sessionStorage.getItem("screen") === 2){
+            window.location.href = "../carrito/carrito.html";
+        }
     } catch (error) {
         errorElement.innerText = error.message;
     } finally {
@@ -131,7 +136,14 @@ document.getElementById("btn").addEventListener("click", async function() {
         }
         let user = await response.json();
         sessionStorage.setItem("userId", user.user.id);
-        window.location.href = "../home/home.html";
+        const screen = parseInt(sessionStorage.getItem("screen"), 10);
+        if (screen === 1 || isNaN(screen)) {
+            console.log("entro1");
+            window.location.href = "../home/home.html";
+        } else if (screen === 2) {
+            console.log("entro");
+            window.location.href = "../carrito/carrito.html";
+        }
     } catch (error) {
         errorElement.innerText = error.message;
     } finally {

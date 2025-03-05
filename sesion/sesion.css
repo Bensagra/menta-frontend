@@ -13,6 +13,7 @@ body {
     background-color: #d9c6b1;
     background-image: url("../images/Logo.svg");
     background-repeat: no-repeat;
+    background-size: 120%;
     background-position: center;
     padding: 30px;
     border-radius: 20px;
@@ -21,14 +22,15 @@ body {
     width: 300px;
     display: flex;
     flex-direction: column;
-    height: auto;
-    justify-content: space-around;
+    height: 70%;
+    justify-content: center;
 }
 .title {
     
     
     font-size: 22px;
-    font-weight: 900;
+    justify-self: flex-start;
+    font-weight: bold;
     color: black;
     margin-bottom: 20px;
     text-decoration: underline;
@@ -36,7 +38,7 @@ body {
 }
 .input-group {
     text-align: left;
-    margin-bottom: 15px;
+    
 }
 .input-group label {
     font-weight: bold;
@@ -48,14 +50,21 @@ body {
 .input-group input {
     width: 100%;
     padding: 8px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
     border: 1px solid #2d5540;
     border-radius: 5px;
     background-color: #4a6655;
     color: white;
+
 }
+
+.input-group input::placeholder {
+    color:white;
+  }
 .btn {
     background-color: #2d5540;
-    color: black;
+    color: white;
     font-weight: bold;
     padding: 10px 20px;
     border: none;
@@ -69,6 +78,7 @@ body {
     background-color: #1f3a2b;
     cursor: not-allowed;
 }
+
 .btn:hover:not(:disabled) {
     background-color: #1f3a2b;
 }
@@ -103,3 +113,80 @@ body {
     transform: translateY(-50%);
   }
   
+
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      justify-content: space-around;
+    }
+    .navbar-nav {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
+    /* Estilos del navbar (Appbar) */
+    .navbar {
+        background-color: #3e2723;
+        padding: 15px 20px;
+      }
+      .navbar-brand img {
+        width: 100px;
+      }
+      .navbar-nav .nav-item {
+        position: relative;
+      }
+      .navbar-nav .nav-link {
+        color: #365a54 !important;
+        font-weight: bold;
+        padding: 10px 15px;
+        transition: color 0.3s ease-in-out;
+      }
+      .navbar-nav .nav-link:hover {
+        color: #ffe0b2 !important;
+      }
+      
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: #fff;
+        border-radius: 8px;
+        border: none;
+        box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+        display: none;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.2s ease;
+        z-index: 1000;
+        width: 200px;
+      }
+      .dropdown-item {
+        padding: 12px 15px;
+        font-size: 16px;
+        color: #333;
+        transition: background-color 0.3s ease, color 0.3s ease;
+      }
+      .dropdown-item:hover {
+        background-color: #ffe0b2;
+        color: #3e2723;
+      }
+      .nav-item:hover .dropdown-menu {
+        display: block;
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Íconos */
+      .icon {
+        width: 25px;
+        height: auto;
+      }.icon{
+     text-decoration: none;
+     border: none; 
+      background-color: transparent;
+  }
+      
+      /* Para evitar que el navbar fijo tape el contenido */
+      body {
+        padding-top: 70px;
+      }

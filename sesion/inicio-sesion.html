@@ -1,70 +1,136 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Inicio de sesión / Registro</title>
-    <link rel="stylesheet" href="sesion.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inicio de sesión / Registro</title>
+  <!-- Estilos propios -->
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <!-- Bootstrap CSS para el navbar -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="sesion.css">
 
 </head>
 <body>
-    <div class="container" id="form-container">
-        <div class="title" id="form-title">Inicio de sesión</div>
-        
-        <div id="login-form">
-            <div class="input-group">
-                <label for="email">Mail</label>
-                <input type="text" id="email" placeholder="">
-            </div>
-            <div class="input-group">
-                <label for="password">Contraseña</label>
-                <div class="password-wrapper">
-                  <input type="password" id="password" placeholder="">
-                  <span class="toggle-password" onclick="togglePassword('password', this)" style="cursor: pointer;">
-                    <i class="fa fa-eye"></i>
-                  </span>
-                </div>
-              </div>
-              
-            <div><p class="error" id="error"></p></div>
-            <button class="btn" id="btn">Iniciar sesión</button>
-            <div class="toggle">¿No tenés cuenta? <a href="#" id="toggle-register">Registrarte</a></div>
-        </div>
-
-        <div id="register-form" style="display: none;">
-            <div class="input-group">
-                <label for="name">Nombre</label>
-                <input type="text" id="name" placeholder="">
-            </div>
-            <div class="input-group">
-                <label for="surname">Apellido</label>
-                <input type="text" id="surname" placeholder="">
-            </div>
-            <div class="input-group">
-                <label for="phone">Número de teléfono</label>
-                <input type="text" id="phone" placeholder="">
-            </div>
-            <div class="input-group">
-                <label for="reg-email">Mail</label>
-                <input type="text" id="reg-email" placeholder="">
-            </div>
-            <div class="input-group">
-                <label for="reg-password">Contraseña</label>
-                <div class="password-wrapper">
-                  <input type="password" id="reg-password" placeholder="">
-                  <span class="toggle-password" onclick="togglePassword('reg-password', this)" style="cursor: pointer;">
-                    <i class="fa fa-eye"></i>
-                  </span>
-                </div>
-              </div>
-              
-            <div><p class="error" id="reg-error"></p></div>
-            <button class="btn" id="register-btn">Registrarse</button>
-            <div class="toggle">¿Ya tenés cuenta? <a href="#" id="toggle-login">Iniciar sesión</a></div>
-        </div>
+  <!-- Navbar (Appbar) -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <a class="navbar-brand" href="#">
+      <img src="../images/Logo.svg" alt="Logo menta">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" 
+            data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="../index.html">Inicio</a>
+        </li>
+        <!-- Dropdown Menta -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenta" role="button" 
+             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Menta
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenta">
+            <a class="dropdown-item" href="#">Nuestra Historia</a>
+            <a class="dropdown-item" href="#">Equipo</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Sostenibilidad</a>
+          </div>
+        </li>
+        <!-- Enlace directo a Productos -->
+        <li class="nav-item">
+          <a class="nav-link" href="../productos.html" id="navbarDropdownProductos">Productos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Catering</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../contacto.html">Contacto</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../home/home.html">Mis pedidos</a>
+        </li>
+        <li class="nav-item">
+          <button onclick="sessionStorage.setItem('screen',2)">
+            <a class="nav-link" href="../carrito/carrito.html">
+              <img class="icon" src="../images/carrito.svg" alt="Carrito">
+            </a>
+          </button>
+        </li>
+        <li class="nav-item">
+          <button onclick="sessionStorage.setItem('screen',1)">
+            <a class="nav-link" href="../sesion/inicio-sesion.html">
+              <img class="icon" src="../images/user.svg" alt="User">
+            </a>
+          </button>
+        </li>
+      </ul>
     </div>
+  </nav>
+
+  <!-- Contenedor de inicio de sesión/registro -->
+  <div class="container" id="form-container">
+    <div class="title" id="form-title">Inicio de sesión</div>
     
-    <script src="sesion.js"></script>
+    <div id="login-form" class="login-form">
+      <div class="input-group">
+        <input type="text" id="email" placeholder="Email">
+      </div>
+      <div class="input-group">
+        <div class="password-wrapper">
+          <input type="password" id="password" placeholder="Contraseña">
+          <span class="toggle-password" onclick="togglePassword('password', this)" style="cursor: pointer;">
+            <i class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+      <div><p class="error" id="error"></p></div>
+      <button class="btn" id="btn">Iniciar sesión</button>
+      <div class="toggle">¿No tenés cuenta? <a href="#" id="toggle-register">Registrarte</a></div>
+    </div>
+
+    <div id="register-form" style="display: none;">
+      <div class="input-group">
+        <input type="text" id="name" placeholder="Nombre">
+      </div>
+      <div class="input-group">
+        <input type="text" id="surname" placeholder="Apellido">
+      </div>
+      <div class="input-group">
+        <input type="text" id="phone" placeholder="Número telefónico">
+      </div>
+      <div class="input-group">
+        <input type="text" id="reg-email" placeholder="Email">
+      </div>
+      <div class="input-group">
+        <div class="password-wrapper">
+          <input type="password" id="reg-password" placeholder="Contraseña">
+          <span class="toggle-password" onclick="togglePassword('reg-password', this)" style="cursor: pointer;">
+            <i class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+      <div><p class="error" id="reg-error"></p></div>
+      <button class="btn" id="register-btn">Registrarse</button>
+      <div class="toggle">¿Ya tenés cuenta? <a href="#" id="toggle-login">Iniciar sesión</a></div>
+    </div>
+  </div>
+  
+  <!-- Scripts de Bootstrap y dependencias -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" 
+          integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" 
+          crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" 
+          integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" 
+          crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" 
+          integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" 
+          crossorigin="anonymous"></script>
+  <script src="sesion.js"></script>
 </body>
 </html>
