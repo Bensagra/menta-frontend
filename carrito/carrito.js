@@ -163,6 +163,7 @@
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
+            local: document.getElementById("local").value === "true" ? true : false,
             order: cart,
             userId: sessionStorage.getItem("userId"),
             notes: notes,
