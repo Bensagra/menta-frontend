@@ -119,17 +119,21 @@
       height: 200px;
       border-radius: 10px;
       object-fit: cover;
+      margin-bottom: 10px;
     }
     .producto h3 {
       font-size: 18px;
       font-weight: bold;
       color: black;
     }
-    .producto p {
-      color: #b53f3f;
+   
+    .desc {
+      margin: 5px;
+      color: grey;
       font-weight: bold;
-      font-size: 16px;
+      font-size: 12px;
     }
+    
     .producto button {
       background-color: #3e2723;
       color: white;
@@ -233,4 +237,10 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
+    }
+
+    .price {
+      color: #365a54;
+      font-size: 16px;
+      font-weight: bold;
     }

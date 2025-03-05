@@ -64,8 +64,8 @@ function renderizarProductos(categorias) {
           div.innerHTML = `
           <img src="${producto.image}" alt="${producto.name}">
           <h3>${producto.name}</h3>
-          <p>${producto.description}</p>
-          <p>$${producto.price}</p>
+          <p class="desc">${producto.description}</p>
+          <p class="price">$${producto.price}</p>
           `;
           listaProductos.appendChild(div);
         }else{
