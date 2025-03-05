@@ -66,6 +66,7 @@ pointer-events: none; /* Esto permite que los clics pasen a través del pseudo-e
 }
 
 .menu {
+    
     display: none;
     position: absolute;
     top: 10%;
@@ -115,7 +116,7 @@ pointer-events: none; /* Esto permite que los clics pasen a través del pseudo-e
     z-index: 10;
 }
 #orders {
-    height: 70vh;
+    height: 50vh;
     overflow-y: scroll;
     margin-top: 20px;
     display: flex;
