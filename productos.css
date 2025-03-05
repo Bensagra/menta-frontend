@@ -9,7 +9,7 @@
       font-family: 'Georgia', serif;
       background-color: #f8f5f2;
       color: #4d4d4d;
-      background-image: url("images/fondo.png");
+      background-image: url("https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//fondo.png");
     }
     main {
       flex: 1;

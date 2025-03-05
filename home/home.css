@@ -6,7 +6,7 @@
 }
 
 body {
-    background-image: url("../images/Fondo.png");
+    background-image: url("https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//fondo.png");
     background-color: #1c1c1c;
     color: white;
     display: flex;

@@ -8,7 +8,7 @@
 
 /* Fondo general */
 body {
-  background-image: url("../images/fondo.png");
+  background-image: url("https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//fondo.png");
   background-size: cover;
   background-position: center;
   color: white;

@@ -7,7 +7,7 @@ body {
     height: 100vh;
     background-color: #1a2a23;
     font-family: Arial, sans-serif;
-    background-image: url("../images/Fondo.png");
+    background-image: url("https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//fondo.png");
 }
 .container {
     background-color: #d9c6b1;
