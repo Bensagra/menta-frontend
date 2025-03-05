@@ -141,6 +141,25 @@
       border: none;
       cursor: pointer;
     }
+    .whatsapp-float {
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 40px;
+      right: 40px;
+      background-color: black;
+      color: #FFF;
+      border-radius: 50%;
+      padding: 10px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 3px #999;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+    }
   </style>
 </head>
 <body>
@@ -248,6 +267,9 @@
       <p>Dirección: Yatay 239, Cdad. Autónoma de Buenos Aires, Argentina</p>
     </div>
   </footer>
+  <a href="https://wa.me/+5491167959155" target="_blank" class="whatsapp-float">
+    <img style="width: 100%; height: auto;" src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//whatsapp-vector-logo-icon-logotype-vector-social-media_901408-406-removebg-preview.png" alt="WhatsApp">
+  </a>
   <script>if (sessionStorage.getItem('userId')) {
     document.getElementById("user").style.display = "none";
   
