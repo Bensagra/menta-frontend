@@ -67,7 +67,7 @@ function renderizarProductos(categorias) {
       div.classList.add("producto");
       
       let contenido = `
-        <img src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/images//1741150224797-WhatsApp%20Image%202025-03-05%20at%2001.20.32.jpeg" alt="${producto.name}">
+        <img src="${producto.image}" alt="${producto.name}">
         <h3 class="mt-4">${producto.name}</h3>
       `;
       

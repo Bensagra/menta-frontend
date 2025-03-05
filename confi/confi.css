@@ -111,6 +111,11 @@
 .navbar-nav .nav-item {
   position: relative;
 }
+footer {
+  background-color: #3e2723;
+  color: #f3e5ab;
+  padding: 20px 0;
+}
 
 .navbar-nav .nav-link {
   color: #365a54 !important;

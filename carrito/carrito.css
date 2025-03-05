@@ -30,6 +30,11 @@
     height: auto;
     position: relative;
   }
+  footer {
+    background-color: #3e2723;
+    color: #f3e5ab;
+    padding: 20px 0;
+  }
   /* Encabezado y botones (puedes agregar si se desea) */
   .header {
     display: flex;

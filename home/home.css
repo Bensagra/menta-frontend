@@ -28,6 +28,11 @@ body {
     position: relative;
     height: 90vh;
 }
+footer {
+  background-color: #3e2723;
+  color: #f3e5ab;
+  padding: 20px 0;
+}
 
 .container::before {
 content: "";
