@@ -72,9 +72,9 @@ function renderizarProductos(categorias) {
       `;
       
       if (producto.description !== ".") {
-        contenido += `<p>${producto.description}</p>`;
+        contenido += `<p style="color='#365a54'">${producto.description}</p>`;
       }
-      contenido += `<p>${categoria.name}</p>`;
+      contenido += `<p style="color='#365a54'">${categoria.name}</p>`;
 
       
       contenido += `<p>$${producto.price}</p>`;
