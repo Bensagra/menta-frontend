@@ -6,13 +6,10 @@
   // Función para regresar a la página anterior
   function continueShopping() {
     const screen = parseInt(sessionStorage.getItem("screen"), 10);
-    if (screen === 1 || isNaN(screen)) {
-        console.log("entro1");
-        window.location.href = "../selector/selector.html";
-    } else if (screen === 2) {
+   
         console.log("entro");
         window.location.href = "../productos.html";
-    }
+  
   }
 
   document.addEventListener("DOMContentLoaded", async () => {

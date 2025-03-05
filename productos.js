@@ -84,6 +84,7 @@ const div = document.createElement("div");
 }
 
 function addToCart(productId) {
+   let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
   const item = cart.find(product => parseInt(product.id) === parseInt(productId));
   if (item) {
     item.quantity++;
