@@ -55,65 +55,36 @@ function renderizarCategorias(categorias) {
 function renderizarProductos(categorias) {
   const listaProductos = document.getElementById("productos-lista");
   listaProductos.innerHTML = "";
+  
+  const horaActual = new Date().getHours();
+  const fueraDeHorario = horaActual < 8 || horaActual > 20;
+  
   categorias.forEach(categoria => {
     categoria.food.forEach(producto => {
-        if (new Date().getHours() <8 || new Date().getHours() >20) {
-        const div = document.createElement("div");
-        div.classList.add("producto");
-        if (producto.description != ".") {
-          div.innerHTML = `
-          <img src="${producto.image}" alt="${producto.name}">
-          <h3>${producto.name}</h3>
-          <p class="desc">${producto.description}</p>
-          <p class="price">$${producto.price}</p>
-          `;
-          listaProductos.appendChild(div);
-        }else{
-          if (producto.description != ".") {
-            div.innerHTML = `
-            <img src="${producto.image}" alt="${producto.name}">
-            <h3>${producto.name}</h3>
-            <p>$${producto.price}</p>
-            `;
-            listaProductos.appendChild(div);
-          }
-        }
-       
-
-    
-}else{
-const div = document.createElement("div");
-
+      if (!producto || !producto.image || !producto.name || !producto.price) return;
+      
+      const div = document.createElement("div");
       div.classList.add("producto");
-      if (producto.description != ".") {
-        div.innerHTML = `
+      
+      let contenido = `
         <img src="${producto.image}" alt="${producto.name}">
         <h3>${producto.name}</h3>
-        <p>${producto.description}</p>
-        <p>$${producto.price}</p>
-        <button class="btn btn-primary btn-block" id="btn" onclick="addToCart('${producto.id}')">Agregar al carrito</button>
-
-        `;
-        listaProductos.appendChild(div);
-      }else{
-        if (producto.description != ".") {
-          div.innerHTML = `
-          <img src="${producto.image}" alt="${producto.name}">
-          <h3>${producto.name}</h3>
-          <p>$${producto.price}</p>
-          <button class="btn btn-primary btn-block" id="btn" onclick="addToCart('${producto.id}')">Agregar al carrito</button>
-
-          `;
-          listaProductos.appendChild(div);
-        }
+      `;
+      
+      if (producto.description !== ".") {
+        contenido += `<p>${producto.description}</p>`;
       }
-}
       
- 
+      contenido += `<p>$${producto.price}</p>`;
       
+      if (!fueraDeHorario) {
+        contenido += `<button class="btn btn-primary btn-block" onclick="addToCart('${producto.id}')">Agregar al carrito</button>`;
+      }
+      
+      div.innerHTML = contenido;
+      listaProductos.appendChild(div);
     });
   });
-  
 }
 
 function addToCart(productId) {
