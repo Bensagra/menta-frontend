@@ -146,6 +146,11 @@
     .producto button:hover {
       background-color: #365a54;
     }
+
+    .producto button:active {
+      background-color: #365a54;
+    }
+
     
     /* Alerta fija */
     .alert-fixed {
