@@ -84,7 +84,7 @@ const div = document.createElement("div");
 }
 
 function addToCart(productId) {
-  const item = cart.find(product => product.id === productId);
+  const item = cart.find(product => parseInt(product.id) === parseInt(productId));
   if (item) {
     item.quantity++;
   } else {
