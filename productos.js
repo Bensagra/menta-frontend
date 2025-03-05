@@ -57,7 +57,7 @@ function renderizarProductos(categorias) {
   listaProductos.innerHTML = "";
   categorias.forEach(categoria => {
     categoria.food.forEach(producto => {
-        if (new Date().getHours() <0 || new Date().getHours() >20) {
+        if (new Date().getHours() <8 || new Date().getHours() >20) {
         const div = document.createElement("div");
         div.classList.add("producto");
         if (producto.description != ".") {
