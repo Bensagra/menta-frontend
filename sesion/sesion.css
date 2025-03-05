@@ -10,20 +10,39 @@ body {
     background-image: url("https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//fondo.png");
 }
 .container {
-    background-color: #d9c6b1;
-    background-image: url("../images/Logo.svg");
-    background-repeat: no-repeat;
-    background-size: 120%;
-    background-position: center;
-    padding: 30px;
-    border-radius: 20px;
-    text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    height: 70%;
-    justify-content: center;
+  position: relative;
+  background-color: #d9c6b1;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  min-height: 70vh;
+  justify-content: center;
+  /* Otros estilos que necesites */
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("../images/Logo.svg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  opacity: 0.5; /* Ajusta la opacidad según prefieras */
+  z-index: 0;
+}
+
+/* Aseguramos que el contenido dentro del contenedor se mantenga por encima */
+.container > * {
+  position: relative;
+  z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -35,13 +54,13 @@ body {
 .title {
     
     
-    font-size: 22px;
+    font-size: 30px;
     justify-self: flex-start;
     font-weight: bold;
-    color: black;
+    color: white;
     margin-bottom: 20px;
-    text-decoration: underline;
-  
+    font-family: 'Georgia', serif;
+
 }
 .input-group {
     text-align: left;
