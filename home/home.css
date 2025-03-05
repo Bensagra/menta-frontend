@@ -116,7 +116,8 @@ pointer-events: none; /* Esto permite que los clics pasen a través del pseudo-e
     z-index: 10;
 }
 #orders {
-    height: 50vh;
+    height: auto;
+    max-height: 50vh;
     overflow-y: auto;
     margin-top: 20px;
     display: flex;
