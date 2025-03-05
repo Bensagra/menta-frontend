@@ -332,7 +332,11 @@
             document.getElementById("loadingOverlay").style.display = "none";
             productosGlobales = data.data;
             renderizarCategorias(data.data);
+            if (sessionStorage.getItem("name")) {
+        renderizarProductos([JSON.parse(sessionStorage.getItem("name"))]);
+      } else {
             renderizarProductos(data.data);
+      }
           }
         })
         .catch(error => console.error("Error al cargar datos:", error));
@@ -347,6 +351,7 @@
         
         renderizarProductos(categoriasFiltradas);
       });
+      
     });
   
     function renderizarCategorias(categorias) {
@@ -356,6 +361,7 @@
         const li = document.createElement("li");
         li.textContent = categoria.name;
         li.addEventListener("click", () => {
+            console.log(categoria);
           renderizarProductos([categoria]);
           if (window.innerWidth < 992) {
             $('#sidebarContent').collapse('hide');
@@ -396,6 +402,7 @@
           
         });
       });
+      
     }
   
     function addToCart(productId) {
@@ -420,6 +427,8 @@
         alertDiv.remove();
       }, 3000);
     }
+
+   
   </script>
   
 </body>
