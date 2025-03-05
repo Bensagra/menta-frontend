@@ -116,3 +116,17 @@ document.addEventListener("DOMContentLoaded", async () => {
     showError("Error cargando el menú. Por favor, intenta nuevamente más tarde.");
   }
 });
+
+function updateCartCounter() {
+  const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
+  const totalItems = cart.reduce((acc, item) => acc + item.quantity, 0);
+  const counter = document.getElementById("cart-counter");
+  if (totalItems > 0) {
+    counter.style.display = "block";
+    counter.textContent = totalItems;
+  } else {
+    counter.style.display = "none";
+  }
+}
+
+updateCartCounter();

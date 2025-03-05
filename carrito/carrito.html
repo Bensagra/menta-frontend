@@ -48,12 +48,14 @@
         <a class="nav-link" href="../home/home.html">Mis pedidos</a>
       </li>
     </ul>
-      <li class="nav-item" style="list-style: none;">
-        <button onclick="sessionStorage.setItem('screen',2)" style=" border: none;
-  background-color: transparent;">
-          <a class="nav-link" href="../carrito/carrito.html"><img class="icon" src="../images/carrito.svg" alt="Carrito"></a>
-        </button>
-      </li>
+    <li class="nav-item" style="list-style: none; position: relative;">
+      <button onclick="sessionStorage.setItem('screen',2)" style="border: none; background-color: transparent;">
+        <a class="nav-link" href="../carrito/carrito.html">
+          <img class="icon" src="../images/carrito.svg" alt="Carrito">
+          <span id="cart-counter" style="position: absolute; top: 0; right: 0; background-color: #365a54 ; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; display: none;"></span>
+        </a>
+      </button>
+    </li>
       <li class="nav-item" id="user" >
         <button onclick="sessionStorage.setItem('screen',1)" style=" border: none;
   background-color: transparent;">
