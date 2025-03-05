@@ -120,7 +120,7 @@
     window.updateCart = function(productId, change) {
       productId = Number(productId);
       let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-      let productIndex = cart.findIndex(item => item.id === productId);
+      let productIndex = cart.findIndex(item => parseInt(item.id) === parseInt(productId));
 
       if (productIndex !== -1) {
         cart[productIndex].quantity += change;
