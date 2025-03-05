@@ -27,6 +27,7 @@ body {
     text-align: center;
     position: relative;
     height: auto;
+    max-height: fit-content;
 }
 
 .container::before {
