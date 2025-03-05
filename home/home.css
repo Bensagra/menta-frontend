@@ -26,8 +26,7 @@ body {
     min-width: 400px;
     text-align: center;
     position: relative;
-    height: auto;
-    max-height: fit-content;
+    height: 80vh;
 }
 
 .container::before {
