@@ -1,6 +1,9 @@
 let productosGlobales = []; // Almacena los productos de la API
 let cart = []; // Carrito: lista de objetos { id, quantity }
+if (sessionStorage.getItem('userId')) {
+  document.getElementById("user").style.display = "none";
 
+}
 document.addEventListener("DOMContentLoaded", () => {
   fetch("https://menta-backend.vercel.app/food")
     .then(response => response.json())

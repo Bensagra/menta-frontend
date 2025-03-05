@@ -1,3 +1,7 @@
+if (sessionStorage.getItem('userId')) {
+    document.getElementById("user").style.display = "none";
+  
+}
 if (sessionStorage.getItem("userId") === null) {
     location.href = "../sesion/inicio-sesion.html";
 }

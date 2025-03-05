@@ -1,3 +1,7 @@
+if (sessionStorage.getItem('userId')) {
+    document.getElementById("user").style.display = "none";
+  
+}
 if (sessionStorage.getItem("login-register") == 1 || sessionStorage.getItem("login-register") == null) {
     document.getElementById("login-form").style.display = "block";
     document.getElementById("register-form").style.display = "none";

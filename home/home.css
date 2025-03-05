@@ -147,3 +147,89 @@ pointer-events: none; /* Esto permite que los clics pasen a través del pseudo-e
     max-height: 90%;
     overflow-y: auto;
 }
+/* Estilos del navbar (Appbar) */
+.navbar {
+    background-color: #3e2723;
+    padding: 15px 20px;
+  }
+  
+  .navbar-brand img {
+    width: 100px;
+  }
+  
+  .navbar-nav .nav-item {
+    position: relative;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #365a54 !important;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #ffe0b2 !important;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    width: 200px;
+  }
+  
+  .dropdown-item {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .dropdown-item:hover {
+    background-color: #ffe0b2;
+    color: #3e2723;
+  }
+  
+  .nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Íconos */
+  .icon {
+    width: 25px;
+    height: auto;
+  }
+  
+  .icon {
+    text-decoration: none;
+    border: none;
+    background-color: transparent;
+  }
+  
+  /* Para evitar que el navbar fijo tape el contenido */
+  body {
+    padding-top: 70px;
+  }
+  
+  @media (min-width: 992px) {
+    .navbar-collapse {
+      justify-content: space-around;
+    }
+    .navbar-nav {
+      width: 80%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }

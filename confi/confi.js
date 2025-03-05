@@ -1,4 +1,7 @@
-    // Verificar que el usuario esté autenticado, si no, redirigir al inicio de sesión
+if (sessionStorage.getItem('userId')) {
+  document.getElementById("user").style.display = "none";
+
+}// Verificar que el usuario esté autenticado, si no, redirigir al inicio de sesión
     if (!sessionStorage.getItem("userId")) {
         window.location.href = "../sesion/inicio-sesion.html";
       }

@@ -1,3 +1,7 @@
+if (sessionStorage.getItem('userId')) {
+    document.getElementById("user").style.display = "none";
+  
+}
 async function fetchCategories() {
 try {
     document.getElementById('loadingOverlay').style.display = 'flex';
