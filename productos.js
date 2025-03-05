@@ -57,26 +57,56 @@ function renderizarProductos(categorias) {
   listaProductos.innerHTML = "";
   categorias.forEach(categoria => {
     categoria.food.forEach(producto => {
-        if (new Date().getHours() <8 || new Date().getHours() >24) {
+        if (new Date().getHours() <0 || new Date().getHours() >20) {
         const div = document.createElement("div");
         div.classList.add("producto");
-        div.innerHTML = `
-        <img src="${producto.image}" alt="${producto.name}">
-        <h3>${producto.name}</h3>
-        <p>$${producto.price}</p>`;
-        listaProductos.appendChild(div);
+        if (producto.description != ".") {
+          div.innerHTML = `
+          <img src="${producto.image}" alt="${producto.name}">
+          <h3>${producto.name}</h3>
+          <p>${producto.description}</p>
+          <p>$${producto.price}</p>
+          `;
+          listaProductos.appendChild(div);
+        }else{
+          if (producto.description != ".") {
+            div.innerHTML = `
+            <img src="${producto.image}" alt="${producto.name}">
+            <h3>${producto.name}</h3>
+            <p>$${producto.price}</p>
+            `;
+            listaProductos.appendChild(div);
+          }
+        }
+       
 
     
 }else{
 const div = document.createElement("div");
+
       div.classList.add("producto");
-      div.innerHTML = `
+      if (producto.description != ".") {
+        div.innerHTML = `
         <img src="${producto.image}" alt="${producto.name}">
         <h3>${producto.name}</h3>
+        <p>${producto.description}</p>
         <p>$${producto.price}</p>
         <button class="btn btn-primary btn-block" id="btn" onclick="addToCart('${producto.id}')">Agregar al carrito</button>
-      `;
-      listaProductos.appendChild(div);
+
+        `;
+        listaProductos.appendChild(div);
+      }else{
+        if (producto.description != ".") {
+          div.innerHTML = `
+          <img src="${producto.image}" alt="${producto.name}">
+          <h3>${producto.name}</h3>
+          <p>$${producto.price}</p>
+          <button class="btn btn-primary btn-block" id="btn" onclick="addToCart('${producto.id}')">Agregar al carrito</button>
+
+          `;
+          listaProductos.appendChild(div);
+        }
+      }
 }
       
  
