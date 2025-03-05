@@ -40,7 +40,7 @@
       font-size: 16px;
     }
     .nav-link:hover {
-      color: #d32f2f !important;
+        color: #ffe0b2 !important;
     }
     .icon {
       width: 22px;
@@ -334,6 +334,7 @@
             renderizarCategorias(data.data);
             if (sessionStorage.getItem("name")) {
         renderizarProductos([JSON.parse(sessionStorage.getItem("name"))]);
+        sessionStorage.removeItem("name");
       } else {
             renderizarProductos(data.data);
       }

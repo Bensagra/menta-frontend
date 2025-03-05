@@ -403,6 +403,9 @@ function generateButtons(categories) {
         div.setAttribute('onclick', `comprar('${JSON.stringify(category)}')`);
         
         const img = document.createElement('img');
+        img.style.objectFit = 'contain';
+        img.style.width = '100%';
+        img.style.height = 'auto';
         img.src = category.img;
         img.alt = category.name;
         
