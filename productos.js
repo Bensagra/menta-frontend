@@ -5,6 +5,7 @@ if (sessionStorage.getItem('userId')) {
 
 }
 document.addEventListener("DOMContentLoaded", () => {
+  updateCartCounter()
   fetch("https://menta-backend.vercel.app/food")
     .then(response => response.json())
     .then(data => {
@@ -33,7 +34,6 @@ document.addEventListener("DOMContentLoaded", () => {
     renderizarProductos(categoriasFiltradas);
   });
   
-  updateCartCounter();
 });
 
 function renderizarCategorias(categorias) {
@@ -89,7 +89,16 @@ function renderizarProductos(categorias) {
     });
   });
 }
-
+function showAlert() {
+  const alertDiv = document.createElement("div");
+  alertDiv.className = "alert alert-primary alert-fixed";
+  alertDiv.setAttribute("role", "alert");
+  alertDiv.textContent = "Su comida ha sido agregada correctamente al carrito";
+  document.body.appendChild(alertDiv);
+  setTimeout(() => {
+    alertDiv.remove();
+  }, 3000);
+}
 function addToCart(productId) {
    let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
   const item = cart.find(product => parseInt(product.id) === parseInt(productId));
@@ -101,21 +110,10 @@ function addToCart(productId) {
   sessionStorage.setItem("cart", JSON.stringify(cart));
   console.log("Carrito actual:", cart);
   showAlert();
+  updateCartCounter();
 }
 
-function addToCart(productId) {
-  let cart = JSON.parse(sessionStorage.getItem("cart")) || [];
-  const item = cart.find(product => parseInt(product.id) === parseInt(productId));
-  if (item) {
-    item.quantity++;
-  } else {
-    cart.push({ id: parseInt(productId), quantity: 1 });
-  }
-  sessionStorage.setItem("cart", JSON.stringify(cart));
-  updateCartCounter();
-  console.log("Carrito actual:", cart);
-  showAlert();
-}
+
 
 
 function updateCartCounter() {

@@ -93,6 +93,12 @@
       gap: 20px;
       padding: 20px;
     }
+
+    .alert-primary{
+      background-color: #365a54;
+      color: white;
+      border-color: #365a54;
+    }
     .producto {
       background: white;
       padding: 15px;
