@@ -260,44 +260,4 @@
     }
 
 
-    /* 1. Estilo para la imagen del logo en el navbar */
-.navbar-brand img {
-  width: 100px;
-}
-
-/* 2. Estilo para los elementos <li> que tienen list-style: none y posición relativa
-   (corresponde al li del carrito y posiblemente otros elementos) */
-.navbar-nav li.nav-item {
-  list-style: none;
-  position: relative;
-}
-
-/* 3. Estilo para el contador del carrito (#cart-counter) */
-#cart-counter {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background-color: #365a54;
-  color: white;
-  border-radius: 50%;
-  padding: 2px 6px;
-  font-size: 12px;
-  display: none;
-}
-
-/* 4. Estilo para el <li> con id "user" (elimina la viñeta) */
-#user {
-  list-style: none;
-}
-
-/* 5. Estilo para el botón de la barra lateral en mobile */
-.mobile-sidebar-btn button {
-  width: 100%;
-  margin-top: 8vh;
-}
-
-/* 6. Estilo para la imagen dentro del enlace de WhatsApp */
-.whatsapp-float img {
-  width: 100%;
-  height: auto;
-}
+    
