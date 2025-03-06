@@ -4,12 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Catálogo de Productos</title>
-  <!-- Bootstrap CSS -->
   <link rel="icon" href="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//logo_pestana_circular.png" type="image/x-icon">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <link rel="stylesheet" href="./productos.css">
-  
 </head>
 <body>
   <!-- Loading Overlay -->
@@ -18,7 +14,9 @@
   </div>
   
   <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
-    <a class="navbar-brand" href="./index.html"><img src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//Logo.svg" alt="Logo menta" style="width: 100px;"></a>
+    <a class="navbar-brand" href="./index.html">
+      <img src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//Logo.svg" alt="Logo menta">
+    </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" 
             data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
             aria-expanded="false" aria-label="Toggle navigation">
@@ -57,26 +55,27 @@
           <a class="nav-link" href="./home/home.html">Mis pedidos</a>
         </li>
       </ul>
-      <li class="nav-item" style="list-style: none; position: relative;">
+      <li class="nav-item">
         <button onclick="sessionStorage.setItem('screen',2)">
           <a class="nav-link" href="./carrito/carrito.html">
             <img class="icon" src="images/carrito.svg" alt="Carrito">
-            <span id="cart-counter" style="position: absolute; top: 0; right: 0; background-color: #365a54 ; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; display: none;"></span>
+            <span id="cart-counter"></span>
           </a>
         </button>
       </li>
-        <li class="nav-item" id="user" style="list-style: none;">
-          <button onclick="sessionStorage.setItem('screen',1)">
-            <a class="nav-link" href="./sesion/inicio-sesion.html"><img class="icon" src="images/user.svg" alt="User"></a>
-          </button>
-        </li>
-      </div>
-
+      <li class="nav-item" id="user">
+        <button onclick="sessionStorage.setItem('screen',1)">
+          <a class="nav-link" href="./sesion/inicio-sesion.html">
+            <img class="icon" src="images/user.svg" alt="User">
+          </a>
+        </button>
+      </li>
+    </div>
   </nav>
   
   <main>
     <div class="container d-lg-none mobile-sidebar-btn">
-      <button style="width: 100%; margin-top: 8vh;" class="btn btn-secondary mb-3" type="button" data-toggle="collapse" data-target="#sidebarContent" aria-expanded="false" aria-controls="sidebarContent">
+      <button class="btn btn-secondary mb-3" type="button" data-toggle="collapse" data-target="#sidebarContent" aria-expanded="false" aria-controls="sidebarContent">
         Buscar Productos y Categorías
       </button>
     </div>
@@ -97,11 +96,10 @@
       <div class="productos" id="productos-lista"></div>
     </div>
     <a href="https://wa.me/+5491167959155" target="_blank" class="whatsapp-float">
-      <img style="width: 100%; height: auto;" src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//whatsapp-vector-logo-icon-logotype-vector-social-media_901408-406-removebg-preview.png" alt="WhatsApp">
+      <img src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//whatsapp-vector-logo-icon-logotype-vector-social-media_901408-406-removebg-preview.png" alt="WhatsApp">
     </a>
   </main>
   
-  <!-- FOOTER con color marrón original, siempre fijo al fondo si no hay contenido suficiente -->
   <footer class="text-center">
     <div class="container">
       <p>&copy; 2025 Menta Café. Todos los derechos reservados.</p>
@@ -109,12 +107,8 @@
     </div>
   </footer>
   
-  <!-- Scripts: jQuery, Popper.js y Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  
- <script src="productos.js"></script>
-
-
+  <script src="productos.js"></script>
 </body>
 </html>
