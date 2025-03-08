@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catering - Menta café</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./catering.css">
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <a class="navbar-brand" href="../index.html"><img src="../images/Logo.svg" alt="Logo menta" style="width: 100px;"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" 
+                data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" 
+                aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarNavDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="../index.html">Inicio</a>
+            </li>
+            <!-- Dropdown Menta -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenta" role="button" 
+                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Menta
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdownMenta">
+                <a class="dropdown-item" href="#">Nuestra Historia</a>
+                <a class="dropdown-item" href="#">Equipo</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Sostenibilidad</a>
+              </div>
+            </li>
+            <!-- Enlace directo a Productos -->
+            <li class="nav-item">
+              <a class="nav-link" href="../productos.html" id="navbarDropdownProductos">Productos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Catering</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../contacto.html">Contacto</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="../home/home.html">Mis pedidos</a>
+            </li>
+          </ul>
+          <li class="nav-item" style="list-style: none; position: relative;">
+            <button onclick="sessionStorage.setItem('screen',2)" style="border: none; background-color: transparent;">
+              <a class="nav-link" href="../carrito/carrito.html">
+                <img class="icon" src="../images/carrito.svg" alt="Carrito">
+                <span id="cart-counter" style="position: absolute; top: 0; right: 0; background-color: #365a54 ; color: white; border-radius: 50%; padding: 2px 6px; font-size: 12px; display: none;"></span>
+              </a>
+            </button>
+          </li>
+            <li class="nav-item" id="user" >
+              <button onclick="sessionStorage.setItem('screen',1)" style=" border: none;
+        background-color: transparent;">
+                <a class="nav-link" href="../sesion/inicio-sesion.html"><img class="icon" src="../images/user.svg" alt="User"></a>
+              </button>
+            </li>
+          </div>
+      
+      </nav>
+
+      <h2 class="title">Catering</h2>
+      <div class="catering-section">
+        <div class="text">
+          <h3>Catering</h3>
+          <p>Nuestros servicios de catering ofrecen una experiencia culinaria excepcional para todo tipo de eventos. Desde un pequeño almuerzo ejecutivo, cumpleaños, aniversarios o festividad, nuestro servicio incluye personal amable y bien capacitado que se encargará del montaje, la presentación y el servicio durante todo el evento. Nuestra meta es superar las expectativas y hacer que tu evento sea memorable, el equipo profesional se encarga de todos los detalles para que puedas disfrutar sin preocupaciones, contamos con un menú que es versátil y delicioso, con opciones para satisfacer todos los gustos y necesidades de todos. Además, nos enorgullecemos de utilizar ingredientes frescos y de la más alta calidad para crear platos que impresionarán a tus invitados.</p>
+        </div>
+        <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="../images/carrusel1.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="../images/carrusel1.jpeg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="..." class="d-block w-100" alt="...">
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <h1>Envíanos tu Solicitud</h1>
+        <form action="enviar_email.php" method="POST">
+          <!-- Fila 1: Nombre y Apellido -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="nombre">Nombre*</label>
+              <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-group">
+              <label for="apellido">Apellido*</label>
+              <input type="text" id="apellido" name="apellido" required>
+            </div>
+          </div>
+          
+          <!-- Fila 2: Teléfono y Email -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="telefono">Teléfono*</label>
+              <input type="tel" id="telefono" name="telefono" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email*</label>
+              <input type="email" id="email" name="email" required>
+            </div>
+          </div>
+          
+          <!-- Tipo de Evento -->
+          <div class="form-group">
+            <label for="tipoEvento">Tipo de Evento*</label>
+            <input type="text" id="tipoEvento" name="tipoEvento" required>
+          </div>
+          
+          <!-- Fila 3: Lugar y Día -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="lugar">Lugar</label>
+              <input type="text" id="lugar" name="lugar">
+            </div>
+            <div class="form-group">
+              <label for="dia">Día*</label>
+              <input type="date" id="dia" name="dia" required>
+            </div>
+          </div>
+          
+          <!-- Cantidad de Invitados -->
+          <div class="form-group">
+            <label for="cantidadInvitados">Cantidad de Invitados*</label>
+            <input type="number" id="cantidadInvitados" name="cantidadInvitados" required>
+          </div>
+          
+          <!-- Fila 4: Hombres, Mujeres, Menores -->
+          <div class="form-row">
+            <div class="form-group">
+              <label for="hombres">Hombres</label>
+              <input type="number" id="hombres" name="hombres">
+            </div>
+            <div class="form-group">
+              <label for="mujeres">Mujeres</label>
+              <input type="number" id="mujeres" name="mujeres">
+            </div>
+            <div class="form-group">
+              <label for="menores">Menores</label>
+              <input type="number" id="menores" name="menores">
+            </div>
+          </div>
+          
+          <!-- Servicio: Con/Sin Mozos, Con/Sin Vajilla -->
+          <div class="form-group">
+            <label>Servicio</label>
+            <div class="options-group">
+              <div class="option">
+                <input type="radio" id="conMozos" name="mozos" value="conMozos">
+                <label for="conMozos">Con Mozos</label>
+              </div>
+              <div class="option">
+                <input type="radio" id="sinMozos" name="mozos" value="sinMozos">
+                <label for="sinMozos">Sin Mozos</label>
+              </div>
+            </div>
+            <div class="options-group">
+              <div class="option">
+                <input type="radio" id="conVajilla" name="vajilla" value="conVajilla">
+                <label for="conVajilla">Con Vajilla</label>
+              </div>
+              <div class="option">
+                <input type="radio" id="sinVajilla" name="vajilla" value="sinVajilla">
+                <label for="sinVajilla">Sin Vajilla</label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Comida: Dulce, Salado, Ambos -->
+          <div class="form-group">
+            <label>Comida</label>
+            <div class="options-group">
+              <div class="option">
+                <input type="radio" id="soloDulce" name="comida" value="soloDulce">
+                <label for="soloDulce">Solo Dulce</label>
+              </div>
+              <div class="option">
+                <input type="radio" id="soloSalado" name="comida" value="soloSalado">
+                <label for="soloSalado">Solo Salado</label>
+              </div>
+              <div class="option">
+                <input type="radio" id="ambos" name="comida" value="ambos">
+                <label for="ambos">Ambos</label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bebidas: Sin Alcohol, Con Alcohol -->
+          <div class="form-group">
+            <label>Bebidas</label>
+            <div class="options-group">
+              <div class="option">
+                <input type="radio" id="sinAlcohol" name="bebidas" value="sinAlcohol">
+                <label for="sinAlcohol">Sin Alcohol</label>
+              </div>
+              <div class="option">
+                <input type="radio" id="conAlcohol" name="bebidas" value="conAlcohol">
+                <label for="conAlcohol">Con Alcohol</label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Servicio de Café: Sí, No -->
+          <div class="form-group">
+            <label>Servicio de Café</label>
+            <div class="options-group">
+              <div class="option">
+                <input type="radio" id="cafeSi" name="servicioCafe" value="si">
+                <label for="cafeSi">Sí</label>
+              </div>
+              <div class="option">
+                <input type="radio" id="cafeNo" name="servicioCafe" value="no">
+                <label for="cafeNo">No</label>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Adicionales (Textarea) -->
+          <div class="form-group">
+            <label for="adicionales">Adicionales</label>
+            <textarea id="adicionales" name="adicionales" rows="4" placeholder="Escribe aquí tus requerimientos adicionales..."></textarea>
+          </div>
+          
+          <!-- Botón de Enviar -->
+          <button type="submit" class="submit-btn">Enviar</button>
+        </form>
+      </div>
+    
+    
+    </div><a href="https://wa.me/+5491167959155" target="_blank" class="whatsapp-float">
+        <img style="width: 100%; height: auto;" src="https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//whatsapp-vector-logo-icon-logotype-vector-social-media_901408-406-removebg-preview.png" alt="WhatsApp">
+      </a>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>
