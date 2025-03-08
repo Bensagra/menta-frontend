@@ -242,3 +242,9 @@ body{
   .submit-btn:hover {
     background: #333;
   }
+
+  footer {
+    background-color: #3e2723;
+    color: #f3e5ab;
+    padding: 20px 0;
+  }
