@@ -1,4 +1,10 @@
     /* Reglas para sticky footer */
+    @font-face {
+      font-family: 'GeorgiaCustom';
+      src: url('../georgia-2/georgia.ttf') format('truetype');
+      font-weight: 400; /* Normal */
+      font-style: normal;
+    }
     html, body {
       height: 100%;
       margin: 0;
@@ -6,7 +12,7 @@
     body {
       display: flex;
       flex-direction: column;
-      font-family: 'Georgia', serif;
+      font-family: 'GeorgiaCustom', serif;
       background-color: #f8f5f2;
       color: #4d4d4d;
       background-image: url("https://vljaisdvadywiyqrvryd.supabase.co/storage/v1/object/public/categories_images//fondo.png");
