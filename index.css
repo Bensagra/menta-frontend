@@ -229,6 +229,8 @@
       }
       .instagram-section iframe {
         margin-bottom: 20px;
+        aspect-ratio: 3/5;
+        height: fit-content;
       }
       .botonera {
         grid-template-columns: repeat(2, 1fr);
