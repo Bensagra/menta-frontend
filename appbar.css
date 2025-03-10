@@ -1,0 +1,116 @@
+/* Espacio para el navbar fijo */
+body {
+    padding-top: 70px;
+  }
+  
+  /* Navbar */
+  .navbar {
+    background-color: #3e2723;
+    padding: 15px 20px;
+  }
+  .navbar-brand img {
+    width: 100px;
+  }
+  
+  /* Elementos de navegación */
+  .navbar-nav .nav-item {
+    position: relative;
+  }
+  .navbar-nav .nav-link {
+    color: #365a54 !important;
+    font-weight: bold;
+    padding: 10px 15px;
+    transition: color 0.3s ease-in-out;
+  }
+  .navbar-nav .nav-link:hover {
+    color: #ffe0b2 !important;
+  }
+  
+  /* Dropdowns del Navbar */
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #fff;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, transform 0.2s ease;
+    z-index: 1000;
+    width: 200px;
+  }
+  .dropdown-item {
+    padding: 12px 15px;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  .dropdown-item:hover {
+    background-color: #ffe0b2;
+    color: #3e2723;
+  }
+  .nav-item:hover .dropdown-menu {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Estilos para pantallas de escritorio */
+  @media (min-width: 992px) {
+    #icon-web {
+      display: flex;
+    }
+    #icon-mobile {
+      display: none;
+    }
+    .navbar-collapse {
+      justify-content: space-between;
+    }
+    .navbar-nav {
+      width: 60%;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+  
+  /* Estilos para pantallas móviles */
+  @media (max-width: 991px) {
+    #icon-web {
+      display: none;
+    }
+    #icon-mobile {
+      display: flex;
+    }
+    .navbar-nav {
+      flex-direction: column;
+      width: 100%;
+      text-align: left;
+    }
+    .navbar-collapse {
+      justify-content: flex-start;
+    }
+    .nav-item {
+      width: 100%;
+    }
+    .navbar-nav .nav-link {
+      padding: 12px;
+    }
+    .dropdown-menu {
+      display: none;
+      position: static;
+      box-shadow: none;
+      opacity: 1;
+      transform: none;
+      background: #f8f5f2;
+      border-radius: 0;
+    }
+    .dropdown-menu .dropdown-item {
+      padding: 10px;
+    }
+    .dropdown-menu.show {
+      display: block;
+    }
+  }

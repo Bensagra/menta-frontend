@@ -169,11 +169,18 @@
 
     /* Estilos para desktop */
     @media (min-width: 992px) {
+      #icon-web {
+        display: flex;
+      }
+      #icon-mobile {
+        display: none;
+      }
       .navbar-collapse {
-        justify-content: space-around;
+        justify-content: space-between;
       }
       .navbar-nav {
-        width: 80%;
+    
+        width: 60%;
         display: flex;
         justify-content: space-around;
       }
@@ -181,6 +188,12 @@
 
     /* Estilos para mobile (max-width: 991px) */
     @media (max-width: 991px) {
+      #icon-web {
+        display: none;
+      }
+      #icon-mobile {
+        display: flex;
+      }
       .navbar-nav {
         flex-direction: column;
         width: 100%;
@@ -261,4 +274,5 @@
     }
 
   
+    
     
