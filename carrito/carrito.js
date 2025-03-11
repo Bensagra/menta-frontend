@@ -86,7 +86,7 @@
       const cart = JSON.parse(sessionStorage.getItem("cart")) || [];
 
       if (cart.length === 0) {
-        cartList.innerHTML = `<p style="text-align:center;">El carrito está vacío.</p>`;
+        cartList.innerHTML = `<p style="text-align: center; color: white;">El carrito está vacío.</p>`;
       }
 
       cart.forEach(item => {
@@ -132,6 +132,7 @@
         cart.push({ id: productId, quantity: change });
       }
       sessionStorage.setItem("cart", JSON.stringify(cart));
+      updateCartCounter();
       renderCart();
     };
 
