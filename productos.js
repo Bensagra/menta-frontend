@@ -73,12 +73,12 @@ function renderizarProductos(categorias) {
       `;
       
       if (producto.description !== ".") {
-        contenido += `<p style="color=#365a54;">${producto.description}</p>`;
+        contenido += `<p style="color: #365a54;">${producto.description}</p>`;
       }
-      contenido += `<p style="color=#365a54">${categoria.name}</p>`;
+      contenido += `<p>${categoria.name}</p>`;
 
       
-      contenido += `<p>$${producto.price}</p>`;
+      contenido += `<p style="color: #365a54;">$${producto.price}</p>`;
       
       if (!fueraDeHorario) {
         contenido += `<button class="btn btn-primary btn-block" onclick="addToCart('${producto.id}')">Agregar al carrito</button>`;
