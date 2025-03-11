@@ -268,4 +268,18 @@
     }
 
 
-    
+    .btn-primary:hover{
+      background-color: #365a54;
+      border-color: #365a54;
+      box-shadow: 0 0 0 .2rem rgba(54,90,84,.5);
+
+    }
+
+
+
+
+    .btn-primary.focus, .btn-primary:focus {
+      background-color: #365a54;
+      border-color: #365a54;
+      box-shadow: 0 0 0 .2rem rgba(54,90,84,.5);
+    }
