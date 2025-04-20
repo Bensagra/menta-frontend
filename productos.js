@@ -66,8 +66,29 @@ function renderizarProductos(categorias) {
       
       const div = document.createElement("div");
       div.classList.add("producto");
+      div.style.position = "relative";
       
-      let contenido = `
+      let contenido = "";
+      
+      // Mostrar cartel de Sin stock si corresponde
+      if (producto.stock === false) {
+        contenido += `
+          <div style="
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #dc3545;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.8rem;
+            z-index: 10;">
+            Sin stock
+          </div>
+        `;
+      }
+      
+      contenido += `
         <img src="${producto.image}" alt="${producto.name}">
         <h3 class="mt-4">${producto.name}</h3>
       `;
@@ -80,7 +101,7 @@ function renderizarProductos(categorias) {
       
       contenido += `<p style="color: #365a54;">$${producto.price}</p>`;
       
-      if (!fueraDeHorario) {
+      if (!fueraDeHorario && producto.stock !== false) {
         contenido += `<button class="btn btn-primary btn-block" onclick="addToCart('${producto.id}')">Agregar al carrito</button>`;
       }
       
